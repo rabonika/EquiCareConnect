@@ -1,0 +1,347 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>EquiCareConnect - Health Equity Resources</title>
+    <link rel="stylesheet" href="../cookie-consent.css"> <!-- Link to cookie CSS file -->
+    <link rel="stylesheet" href="../styles.css"> <!-- Link to GLOBAL CSS file -->
+    <style>
+        body {
+            background-color: #f2f2f2;
+            color: #333;
+            margin: 0;
+            padding: 0;
+            transition: background-color 0.3s ease;
+            font-family: 'Gill Sans', 'Arial', sans-serif;
+            overflow-x: hidden; 
+            box-sizing: border-box; 
+        }
+
+        header {
+            background: linear-gradient(135deg, #52a2db 0%, #1e3c72 100%);
+            color: white;
+            text-align: center;
+            padding: 1.25rem 10%;
+            position: relative;
+            border-bottom: 0.3125rem solid #fabd5e;
+            box-shadow: 0 0.25rem 0.5rem rgba(0,0,0,0.2);
+            animation: fadeIn 1s ease;
+        }
+
+        .header-container {
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+        }
+
+        .page-header {
+            background-color: #52a2db;
+            color: white;
+            text-align: center;
+            padding: 1.25rem;
+            border-bottom: 0.3125rem solid #fabd5e;
+            animation: slideIn 1s ease;
+        }
+
+        .page-header h1 {
+            margin: 0;
+        }
+
+        .logo {
+            width: 7.5rem;
+            height: auto;
+            border-radius: 50%;
+            transition: transform 0.3s ease;
+        }
+
+        .logo:hover {
+            transform: scale(1.1);
+        }
+
+        h1 {
+            font-size: 2.5rem;
+            margin: 0.625rem 0;
+            font-family: 'Georgia', serif;
+            text-shadow: 0.125rem 0.125rem 0.25rem rgba(0, 0, 0, 0.6);
+        }
+
+        nav {
+            background-color: #b8d6d4;
+            text-align: center;
+            padding: 0.625rem;
+            margin-bottom: 1.25rem;
+            box-shadow: 0 0.125rem 0.25rem rgba(0,0,0,0.1);
+            animation: slideIn 1s ease;
+            position: relative;
+        }
+
+        .nav-links {
+            display: flex;
+            justify-content: center;
+            padding: 0;
+            margin: 0;
+            list-style: none;
+        }
+
+        .nav-links > li {
+            position: relative;
+        }
+
+        .nav-links > li > a {
+            color: #333;
+            text-decoration: none;
+            margin: 0 0.625rem;
+            font-size: 1.125rem;
+            transition: color 0.3s ease;
+            padding: 0.625rem;
+            display: inline-block;
+            border-radius: 0.3125rem;
+        }
+
+        .nav-links > li > a:hover {
+            color: #52a2db;
+            background-color: rgba(82, 162, 219, 0.1);
+            transform: scale(1.1);
+        }
+
+        .dropdown-content {
+            display: none;
+            position: absolute;
+            top: 100%;
+            left: 0;
+            background-color: #b8d6d4;
+            padding: 0.625rem;
+            border-radius: 0.3125rem;
+            box-shadow: 0 0 0.625rem rgba(0, 0, 0, 0.1);
+            width: 12.5rem;
+            z-index: 1000;
+        }
+
+        .dropdown-content a {
+            display: block;
+            color: #333;
+            text-decoration: none;
+            padding: 0.625rem;
+            transition: background-color 0.3s ease;
+        }
+
+        .dropdown-content a:hover {
+            background-color: #52a2db;
+            color: white;
+        }
+
+        .nav-links > li:hover .dropdown-content {
+            display: block;
+        }
+
+        section {
+            padding: 1.25rem;
+            margin: 1.25rem auto;
+            max-width: 75rem;
+            text-align: center;
+            animation: fadeIn 1s ease;
+            background-color: #ffffff;
+            box-shadow: 0 0 0.625rem rgba(0,0,0,0.1);
+            border-radius: 0.625rem;
+        }
+
+        section h2 {
+            color: #52a2db;
+            margin-bottom: 1.25rem;
+            font-size: 2rem;
+        }
+
+        section p {
+            line-height: 1.6;
+            font-size: 1.3rem;
+            margin-top: 1.5rem;
+        }
+
+        section .important {
+            font-weight: bold;
+            color: #52a2db;
+            font-size: 1.3rem;
+        }
+
+        section a {
+            color: #dea549;
+            font-size: 1.2rem;
+        }
+
+        footer {
+            text-align: center;
+            padding: 0.625rem;
+            background-color: #52a2db;
+            color: white;
+            position: relative;
+            bottom: 0;
+            width: 100%;
+            animation: fadeIn 1s ease;
+        }
+        /* Cookie Banner */
+        #cookie-banner {
+            position: fixed;
+            bottom: 0;
+            width: 100%;
+            background: #333;
+            color: #fff;
+            text-align: center;
+            padding: 0.9375rem;
+            display: none; /* Hidden by default */
+            z-index: 1000;
+        }
+
+        #cookie-banner button {
+            background: #fabd5e;
+            color: #333;
+            border: none;
+            padding: 0.625rem 1.25rem;
+            border-radius: 0.3125rem;
+            cursor: pointer;
+            font-size: 1rem;
+            transition: background-color 0.3s ease;
+        }
+
+        #cookie-banner button:hover {
+            background: #f0a330;
+            transition: background-color 0.3s ease;
+        }
+
+        @keyframes slideIn {
+            from {
+                transform: translateY(-1.25rem);
+                opacity: 0;
+            }
+            to {
+                transform: translateY(0);
+                opacity: 1;
+            }
+        }
+
+        @keyframes fadeIn {
+            from {
+                opacity: 0;
+            }
+            to {
+                opacity: 1;
+            }
+        }
+
+        /* Custom styles for centering list items with bullets */
+        section .list-container {
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            height: 100%;
+        }
+
+        section ul {
+            list-style: disc inside;
+            padding-left: 0;
+            margin: 0;
+            display: flex;
+            flex-direction: column;
+            justify-content: center;
+            align-items: center;
+            gap: 1rem; /* Space between list items */
+        }
+
+        section ul li {
+            margin: 0.5rem 0;
+        }
+    </style>
+</head>
+<body>
+
+    <header>
+        <div class = "header-container">
+            <img src="../pictures/EquiCareConnect.jpeg" alt="EquiCareConnect Logo" class="logo">
+            <h1>EquiCareConnect</h1>
+        </div>
+    </header>
+
+<nav>
+    <ul class="nav-links">
+        <li><a href="../index.html">Home</a></li>
+        <li><a href="#">Fighting for a Cause</a>
+            <div class="dropdown-content">
+                <a href="fundraising.html">Fundraising</a>
+                <a href="healthcare-social.html">Healthcare Accessibility</a>
+                <a href="chronic-diseases.html">Chronic Diseases</a>
+                <a href="mental-health.html">Mental Health</a>
+                <a href="infant-maternal-health.html">Infant and Maternal Health</a>
+                <a href="health-equity.html">Health Equity</a>
+                <a href="helpful-resources.html">Helpful Resources</a>
+            </div>
+        </li>
+        <li><a href="#">About Us</a>
+            <div class="dropdown-content">
+                <a href="../about/founders.html">Founders</a>
+                <a href="../about/partnerships.html">Partnerships</a>
+                <a href="../about/volunteers-and-interns.html">Volunteers & Interns</a>
+            </div>
+        </li>
+        <li><a href="#">Projects</a>
+            <div class="dropdown-content">
+                <a href="../projects/free-consultations.html">Free Consultations</a>
+                <a href="../projects/doctor-matching-software.html">Doctor Matching Software</a>
+                <a href="../projects/policy-advocacy.html">Policy Advocacy</a>
+            </div>
+        </li>
+        <li><a href="#">Opportunities</a>
+            <div class="dropdown-content">
+                <a href="../opportunities/volunteering-internships.html">Volunteering & Internships</a>
+                <a href="../opportunities/apply.html">Apply</a>
+            </div>
+        </li>
+        <li><a href="#">Blog</a>
+            <div class="dropdown-content">
+                <a href="../blog/research.html">Research</a>
+                <a href="../blog/latest-blog-posts.html">Latest Blog Posts</a>
+                <a href="../blog/submit-post.html">Submit a Post</a>
+            </div>
+        </li>
+        <li><a href="../contact-us.html">Contact Us</a></li>
+    </ul>
+</nav>
+
+<div class="page-header">
+    <h1>Helpful Resources</h1>
+</div>
+
+<section>
+    <h2>Resources to Learn More About Health Equity</h2>
+    <p>Understanding and addressing health equity is crucial for creating a fair and just healthcare system. Below are some valuable resources to help you learn more about health equity:</p>
+    <div class = "list-container">  
+        <ul>
+            <li><a href="https://www.who.int/health-topics/health-equity" target="_blank">World Health Organization (WHO) - Health Equity</a></li>
+            <li><a href="https://www.cdc.gov/healthequity/index.html" target="_blank">Centers for Disease Control and Prevention (CDC) - Health Equity</a></li>
+            <li><a href="https://www.nimhd.nih.gov/" target="_blank">National Institutes of Health (NIH) - National Institute on Minority Health and Health Disparities</a></li>
+            <li><a href="https://www.rwjf.org/en/our-focus-areas/topics/achieving-health-equity.html" target="_blank">Robert Wood Johnson Foundation - Achieving Health Equity</a></li>
+            <li><a href="https://www.healthequityinitiative.org/health-equity-resources.html" target="_blank">Health Equity Initiative - Health Equity Resources</a></li>
+            <li><a href="https://www.kff.org/disparities-policy/" target="_blank">Kaiser Family Foundation - Health Equity and Disparities</a></li>
+            <li><a href="https://www.apha.org/topics-and-issues/health-equity" target="_blank">American Public Health Association (APHA) - Health Equity</a></li>
+            <li><a href="https://nam.edu/programs/culture-of-health/" target="_blank">National Academy of Medicine - Health Equity</a></li>
+        </ul>
+    </div>
+    <p class="important">By exploring these resources, you can gain a deeper understanding of health equity and discover strategies to promote it within your community.</p>
+</section>
+
+<footer>
+    <p>&copy; 2024 EquiCareConnect. All rights reserved.</p>
+</footer>
+
+<div id="cookie-banner">
+    <p>We use cookies to enhance your experience. By continuing to visit this site, you agree to our <a href="#">cookie policy</a>.</p>
+    <button id="accept-cookies">Accept</button>
+</div>
+
+<script>
+    document.getElementById('accept-cookies').addEventListener('click', function() {
+        document.getElementById('cookie-banner').style.display = 'none';
+    });
+</script>
+
+</body>
+</html>

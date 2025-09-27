@@ -1,0 +1,486 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>EquiCareConnect - Health Equity & Inequity</title>
+    <link rel="stylesheet" href="../cookie-consent.css"> <!-- Link to cookie CSS file -->
+    <link rel="stylesheet" href="../styles.css"> <!-- Link to GLOBAL CSS file -->
+    <style>
+        body {
+            background-color: #f2f2f2;
+            color: #333;
+            margin: 0;
+            padding: 0;
+            transition: background-color 0.3s ease;
+            font-family: 'Gill Sans', 'Arial', sans-serif;
+            overflow-x: hidden; 
+            box-sizing: border-box; 
+        }
+
+        header {
+            background: linear-gradient(135deg, #52a2db 0%, #1e3c72 100%);
+            color: white;
+            text-align: center;
+            padding: 1.25rem 10%;
+            position: relative;
+            border-bottom: 0.3125rem solid #fabd5e;
+            box-shadow: 0 0.25rem 0.5rem rgba(0,0,0,0.2);
+            animation: fadeIn 1s ease;
+        }
+
+        .header-container {
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+        }
+
+        .page-header {
+            background-color: #52a2db;
+            color: white;
+            text-align: center;
+            padding: 1.25rem;
+            border-bottom: 0.3125rem solid #fabd5e;
+            animation: slideIn 1s ease;
+        }
+
+        .page-header h1 {
+            margin: 0;
+        }
+
+        .logo {
+            width: 7.5rem;
+            height: auto;
+            border-radius: 50%;
+            transition: transform 0.3s ease;
+        }
+
+        .logo:hover {
+            transform: scale(1.1);
+        }
+
+        h1 {
+            font-size: 2.5rem;
+            margin: 0.625rem 0;
+            font-family: 'Georgia', serif;
+            text-shadow: 0.125rem 0.125rem 0.25rem rgba(0, 0, 0, 0.6);
+        }
+
+        nav {
+            background-color: #b8d6d4;
+            text-align: center;
+            padding: 0.625rem;
+            margin-bottom: 1.25rem;
+            box-shadow: 0 0.125rem 0.25rem rgba(0,0,0,0.1);
+            animation: slideIn 1s ease;
+            position: relative;
+        }
+
+        .nav-links {
+            display: flex;
+            justify-content: center;
+            padding: 0;
+            margin: 0;
+            list-style: none;
+        }
+
+        .nav-links > li {
+            position: relative;
+        }
+
+        .nav-links > li > a {
+            color: #333;
+            text-decoration: none;
+            margin: 0 0.625rem;
+            font-size: 1.125rem;
+            transition: color 0.3s ease;
+            padding: 0.625rem;
+            display: inline-block;
+            border-radius: 0.3125rem;
+        }
+
+        .nav-links > li > a:hover {
+            color: #52a2db;
+            background-color: rgba(82, 162, 219, 0.1);
+            transform: scale(1.1);
+        }
+
+        .dropdown-content {
+            display: none;
+            position: absolute;
+            top: 100%;
+            left: 0;
+            background-color: #b8d6d4;
+            padding: 0.625rem;
+            border-radius: 0.3125rem;
+            box-shadow: 0 0 0.625rem rgba(0, 0, 0, 0.1);
+            width: 12.5rem;
+            z-index: 1000;
+        }
+
+        .dropdown-content a {
+            display: block;
+            color: #333;
+            text-decoration: none;
+            padding: 0.625rem;
+            transition: background-color 0.3s ease;
+        }
+
+        .dropdown-content a:hover {
+            background-color: #52a2db;
+            color: white;
+        }
+
+        .nav-links > li:hover .dropdown-content {
+            display: block;
+        }
+
+        .health-equity-pic {
+            background-image: url('../pictures/health-equity.png');
+            background-size: cover;
+            background-position: center;
+            height: 65vh;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            color: #fff;
+            text-align: center;
+            margin-top: 0;
+            position: relative;
+            overflow: hidden;
+            border-bottom: 0.3125rem solid #fabd5e;
+        }
+
+        .health-equity-pic::before {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            background: rgba(0, 0, 0, 0.4);
+            z-index: 1;
+        }
+
+        .container {
+            padding: 1.25rem;
+            margin: 1.25rem auto;
+            max-width: 75rem;
+            text-align: center;
+            background: #ffffff;
+            border-radius: 0.625rem;
+            box-shadow: 0 0.25rem 0.5rem rgba(0,0,0,0.1);
+            animation: fadeIn 1s ease;
+            margin-left: 8rem;
+            margin-right: 8rem;
+        }
+
+        .container h2 {
+            color: #52a2db;
+            margin-bottom: -0.625rem;
+            margin-top: 1.5625rem;
+            font-size: 1.8rem;
+        }
+
+        .container h3 {
+            color: #52a2db;
+            margin-bottom: -0.625rem;
+            font-size: 1.4rem;
+        }
+
+        .container p{
+            font-size: 1.2rem;
+        }
+
+        .list-content {
+            background-color: #e0f7fa;
+            padding: 1.25rem;
+            border-radius: 0.625rem;
+            box-shadow: 0 0.25rem 0.5rem rgba(0,0,0,0.1);
+            margin: 1.25rem auto; 
+            max-width: 50rem; 
+        }
+
+        .list-content h2 {
+            color: #0e70a4;
+            font-weight: bold;
+            font-size: 1.2rem;
+        }
+
+        .list-content h3 {
+            color: #0e70a4;
+            font-weight: bold;
+            font-size: 1.1rem;
+        }
+
+        .list-content ul {
+            list-style-type: disc;
+            list-style-position: inside; 
+            padding-left: 0; 
+            display: inline-block; 
+            text-align: center; 
+        }
+
+        .list-content li {
+            margin-bottom: 0.625;
+            margin-top: 0;
+            line-height: 1.6;
+            animation: fadeInUp 1s ease;
+            font-size: 1.1rem;
+        }
+
+        .inequity-container h3{
+            padding-bottom: 0.2rem;
+        }
+
+        .inequity-container p{
+            margin: 1.25rem auto;
+            margin-top: -1rem;
+            padding: 1.25rem;
+            padding-bottom: 0.2rem;
+            font-size: 1.2rem;
+        }
+
+        .list-content p{
+            font-size: 1.2rem;
+        }
+
+        b {
+            color: #fabd5e;
+            font-size: 1.3rem;
+            margin: 1.25rem auto;
+            padding: 1.25rem;
+        }
+
+        .full-width-text {
+            background-color: #52a2db;
+            color: #fff;
+            text-align: center;
+            padding: 1.25rem;
+            margin: 1.25rem 0;
+            border-bottom: 0.3125rem solid #fabd5e;
+            animation: slideIn 1s ease;
+            width: 100%;
+            box-sizing: border-box;
+        }
+
+        .full-width-text h2 {
+            margin: 0;
+            font-size: 2.5rem;
+        }
+
+        .full-width-text p {
+            font-size: 1.125rem;
+            margin-top: 0.625rem;
+        }
+
+        footer {
+            text-align: center;
+            padding: 1.25rem;
+            background-color: #52a2db;
+            color: white;
+            position: relative;
+            bottom: 0;
+            width: 100%;
+        }
+
+        #cookie-banner {
+            position: fixed;
+            bottom: 0;
+            width: 100%;
+            background: #333;
+            color: #fff;
+            text-align: center;
+            padding: 0.9375rem;
+            display: none; /* Hidden by default */
+            z-index: 1000;
+        }
+
+        #cookie-banner button {
+            background: #fabd5e;
+            color: #333;
+            border: none;
+            padding: 0.625rem 1.25rem;
+            border-radius: 0.3125rem;
+            cursor: pointer;
+            font-size: 1rem;
+            transition: background 0.3s ease;
+        }
+
+        #cookie-banner button:hover {
+            background: #f0a330;
+        }
+
+        @keyframes slideIn {
+            from {
+                transform: translateY(-1.25rem);
+                opacity: 0;
+            }
+            to {
+                transform: translateY(0);
+                opacity: 1;
+            }
+        }
+
+        @keyframes fadeIn {
+            from {
+                opacity: 0;
+            }
+            to {
+                opacity: 1;
+            }
+        }
+    </style>
+</head>
+<body>
+    <header>
+        <div class = "header-container">
+            <img src="../pictures/EquiCareConnect.jpeg" alt="EquiCareConnect Logo" class="logo">
+            <h1>EquiCareConnect</h1>
+        </div>
+    </header>
+
+<nav>
+    <ul class="nav-links">
+        <li><a href="../index.html">Home</a></li>
+        <li><a href="#">Fighting for a Cause</a>
+            <div class="dropdown-content">
+                <a href="fundraising.html">Fundraising</a>
+                <a href="healthcare-social.html">Healthcare Accessibility</a>
+                <a href="chronic-diseases.html">Chronic Diseases</a>
+                <a href="mental-health.html">Mental Health</a>
+                <a href="infant-maternal-health.html">Infant and Maternal Health</a>
+                <a href="health-equity.html">Health Equity</a>
+                <a href="helpful-resources.html">Helpful Resources</a>
+            </div>
+        </li>
+        <li><a href="#">About Us</a>
+            <div class="dropdown-content">
+                <a href="../about/founders.html">Founders</a>
+                <a href="../about/partnerships.html">Partnerships</a>
+                <a href="../about/volunteers-and-interns.html">Volunteers & Interns</a>
+            </div>
+        </li>
+        <li><a href="#">Projects</a>
+            <div class="dropdown-content">
+                <a href="../projects/free-consultations.html">Free Consultations</a>
+                <a href="../projects/doctor-matching-software.html">Doctor Matching Software</a>
+                <a href="../projects/policy-advocacy.html">Policy Advocacy</a>
+            </div>
+        </li>
+        <li><a href="#">Opportunities</a>
+            <div class="dropdown-content">
+                <a href="../opportunities/volunteering-internships.html">Volunteering & Internships</a>
+                <a href="../opportunities/apply.html">Apply</a>
+            </div>
+        </li>
+        <li><a href="#">Blog</a>
+            <div class="dropdown-content">
+                <a href="../blog/research.html">Research</a>
+                <a href="../blog/latest-blog-posts.html">Latest Blog Posts</a>
+                <a href="../blog/submit-post.html">Submit a Post</a>
+            </div>
+        </li>
+        <li><a href="../contact-us.html">Contact Us</a></li>
+    </ul>
+</nav>
+
+<div class = "page-header">
+    <h1>Health Equities</h1>
+</div>
+
+<div class = "health-equity-pic">
+</div>
+
+<div class = "container">
+    <h2>Health Equity</h2>
+    <p>As we strive to improve public health, a focus on health equity is essential. Healthy People 2030 emphasizes eliminating health disparities, achieving health equity, and attaining health literacy to enhance the health and well-being of all.</p>
+    <h3>Linking Health Equity, Health Literacy, and Social Determinants of Health</h3>
+    <p>Social determinants such as structural racism and systemic bias can impact health literacy and contribute to health disparities. Addressing these issues is key to achieving health equity.</p>
+        
+    <h3>Tools for Action</h3>
+    <p>Healthy People 2030 offers resources to help individuals, organizations, and communities committed to improving health and well-being advance health equity.</p>   
+    <h3>Leveraging Healthy People to Advance Health Equity</h3>
+    <p>Health equity means achieving the highest level of health for all people. This requires ongoing societal efforts to address avoidable inequalities, injustices, and social determinants of health.</p>
+    
+    <div class = "list-content">
+        <h2>Objectives</h2>
+        <ul>
+            <li>Identify priorities by exploring Leading Health Indicators and other objectives.</li>
+            <li>Compare population-level progress to national targets.</li>
+        </ul>
+
+        <h2>Data</h2>
+        <ul>
+            <li>Use Healthy People data to track health disparities and inform program and policy development.</li>
+        </ul>
+
+        <h2>Resources</h2>
+        <ul>
+            <li>Consult evidence-based resources for inspiration and practical application in your community.</li>
+            <li>Review Healthy People in Action stories to see how others are addressing health equity.</li>
+        </ul>
+
+        <h2>Frameworks</h2>
+        <ul>
+            <li>Use the Healthy People 2030 framework for program planning.</li>
+            <li>Employ the social determinants of health framework to build partnerships and communicate root causes of health disparities.</li>
+        </ul>
+
+        <h2>Definitions</h2>
+        <ul>
+            <li>Use the definitions of health equity and health disparities to promote a shared understanding and collaborative action.</li>
+        </ul>
+    </div>
+</div>
+
+<div class = "page-header">
+    <h1>Health Inequities</h1>
+</div>
+
+
+<div class = "container">
+    <div class = "inequity-container">
+        <h2>The Root Causes of Health Inequities</h2>
+        <p>Addressing health inequities requires understanding and tackling the root causes, which are deeply embedded in our social and economic systems. Here are the key causes:</p>
+        
+        <div class = "list-content">
+            <h3>1. Social and Economic Inequalities</h3>
+            <p>Poverty, racism, and other forms of discrimination lead to unequal access to resources such as housing, education, and healthcare. These inequalities create barriers to health and well-being.</p>
+            
+            <h3>2. Housing Instability</h3>
+            <p>Stable, affordable housing is a cornerstone of health. Lack of access to quality housing forces individuals into precarious living conditions, impacting both their physical and mental health.</p>
+            
+            <h3>3. Access to Healthcare</h3>
+            <p>Health systems are beginning to address the non-medical needs of their patients, but there is still a gap in access to quality healthcare services, especially for marginalized communities.</p>
+            
+            <h3>4. Social Determinants of Health</h3>
+            <p>Factors such as education, employment, and community safety play a significant role in health outcomes. Addressing these determinants requires systemic change at the policy and community levels.</p>
+            
+            <h3>5. Systemic Racism and Discrimination</h3>
+            <p>Racism and other forms of discrimination are deeply rooted in our institutions, leading to disparities in health outcomes. Dismantling these systemic issues requires more than just surface-level interventions.</p>
+            
+            <h3>6. Structural and Policy Barriers</h3>
+            <p>Health inequities are perpetuated by policies and structures that prioritize profit over people. Transformative change involves challenging and changing these policies to promote equity and justice.</p>
+        </div>
+        <b>By addressing these root causes, we can work towards a more equitable and just healthcare system that serves everyone, regardless of their background or circumstances.</b>
+    </div>
+</div>
+
+<footer>
+    <p>&copy; 2024 EquiCareConnect. All rights reserved.</p>
+</footer>
+
+<div id="cookie-banner">
+    <p>We use cookies to enhance your experience. By continuing to visit this site, you agree to our <a href="#">cookie policy</a>.</p>
+    <button id="accept-cookies">Accept</button>
+</div>
+
+<script>
+    document.getElementById('accept-cookies').addEventListener('click', function() {
+        document.getElementById('cookie-banner').style.display = 'none';
+    });
+</script>
+
+</body>
+</html>

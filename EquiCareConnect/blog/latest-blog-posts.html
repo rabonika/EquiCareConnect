@@ -1,0 +1,320 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>EquiCareConnect - Latest News</title>
+    <link rel="stylesheet" href="../cookie-consent.css"> <!-- Link to cookie CSS file -->
+    <link rel="stylesheet" href="../styles.css"> <!-- Link to GLOBAL CSS file -->
+    <style>
+        body {
+            background-color: #f2f2f2;
+            color: #333;
+            margin: 0;
+            padding: 0;
+            transition: background-color 0.3s ease;
+            font-family: 'Gill Sans', 'Arial', sans-serif;
+            overflow-x: hidden; 
+            box-sizing: border-box; 
+        }
+
+        header {
+            background: linear-gradient(135deg, #52a2db 0%, #1e3c72 100%);
+            color: white;
+            text-align: center;
+            padding: 1.25rem 10%;
+            position: relative;
+            border-bottom: 0.3125rem solid #fabd5e;
+            box-shadow: 0 0.25rem 0.5rem rgba(0,0,0,0.2);
+            animation: fadeIn 1s ease;
+        }
+
+        .header-container {
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+        }
+
+        .logo {
+            width: 7.5rem;
+            height: auto;
+            border-radius: 50%;
+            transition: transform 0.3s ease;
+        }
+
+        .logo:hover {
+            transform: scale(1.1);
+        }
+
+        h1 {
+            font-size: 2.5rem;
+            margin: 0.625rem 0;
+            font-family: 'Georgia', serif;
+            text-shadow: 0.125rem 0.125rem 0.25rem rgba(0, 0, 0, 0.6);
+        }
+
+        nav {
+            background-color: #b8d6d4;
+            text-align: center;
+            padding: 0.625rem;
+            margin-bottom: 1.25rem;
+            animation: slideIn 1s ease;
+            position: relative;
+        }
+
+        .nav-links {
+            display: flex;
+            justify-content: center;
+            padding: 0;
+            margin: 0;
+            list-style: none;
+        }
+
+        .nav-links > li {
+            position: relative;
+        }
+
+        .nav-links > li > a {
+            color: #333;
+            text-decoration: none;
+            margin: 0 0.625rem;
+            font-size: 1.125rem;
+            transition: color 0.3s ease;
+            padding: 0.625rem;
+            display: inline-block;
+            border-radius: 0.3125rem;
+        }
+
+        .nav-links > li > a:hover {
+            color: #52a2db;
+            background-color: rgba(82, 162, 219, 0.1);
+            transform: scale(1.1);
+        }
+
+        .dropdown-content {
+            display: none;
+            position: absolute;
+            top: 100%;
+            left: 0;
+            background-color: #b8d6d4;
+            padding: 0.625rem;
+            border-radius: 0.3125rem;
+            box-shadow: 0 0 0.625rem rgba(0, 0, 0, 0.1);
+            width: 12.5rem;
+            z-index: 1000;
+        }
+
+        .dropdown-content a {
+            display: block;
+            color: #333;
+            text-decoration: none;
+            padding: 0.625rem;
+            transition: background-color 0.3s ease;
+        }
+
+        .dropdown-content a:hover {
+            background-color: #52a2db;
+            color: white;
+        }
+
+        .nav-links > li:hover .dropdown-content {
+            display: block;
+        }
+
+        .container {
+            display: flex;
+            justify-content: space-around;
+            align-items: center;
+            margin: 1.25rem auto;
+            padding: 1.25rem;
+            background-color: white;
+            border-radius: 0.625rem;
+            box-shadow: 0 0 0.625rem rgba(0,0,0,0.1);
+        }
+
+        .page-header {
+            background-color: #52a2db;
+            color: white;
+            text-align: center;
+            padding: 1.25rem;
+            border-bottom: 0.3125rem solid #fabd5e;
+            animation: slideIn 1s ease;
+        }
+
+        .page-header h1 {
+            margin: 0;
+        }
+
+        footer {
+            text-align: center;
+            padding: 0.625rem;
+            background-color: #52a2db;
+            color: white;
+            position: relative;
+            bottom: 0;
+            width: 100%;
+        }
+
+        @keyframes slideIn {
+            from {
+                transform: translateY(-1.25rem);
+                opacity: 0;
+            }
+            to {
+                transform: translateY(0);
+                opacity: 1;
+            }
+        }
+
+        @keyframes fadeIn {
+            from {
+                opacity: 0;
+            }
+            to {
+                opacity: 1;
+            }
+        }
+    </style>
+</head>
+<body>
+
+    <header>
+        <div class = "header-container">
+            <img src="../pictures/EquiCareConnect.jpeg" alt="EquiCareConnect Logo" class="logo">
+            <h1>EquiCareConnect</h1>
+        </div>
+    </header>
+
+<nav>
+    <ul class="nav-links">
+        <li><a href="../index.html">Home</a></li>
+        <li><a href="#">Fighting for a Cause</a>
+            <div class="dropdown-content">
+                <a href="../causes/fundraising.html">Fundraising</a>
+                <a href="../causes/healthcare-social.html">Healthcare Accessibility</a>
+                <a href="../causes/chronic-diseases.html">Chronic Diseases</a>
+                <a href="../causes/mental-health.html">Mental Health</a>
+                <a href="../causes/infant-maternal-health.html">Infant and Maternal Health</a>
+                <a href="../causes/health-equity.html">Health Equity</a>
+                <a href="../causes/helpful-resources.html">Helpful Resources</a>
+            </div>
+        </li>
+        <li><a href="#">About Us</a>
+            <div class="dropdown-content">
+                <a href="../about/founders.html">Founders</a>
+                <a href="../about/partnerships.html">Partnerships</a>
+                <a href="../about/volunteers-and-interns.html">Volunteers & Interns</a>
+            </div>
+        </li>
+        <li><a href="#">Projects</a>
+            <div class="dropdown-content">
+                <a href="../projects/free-consultations.html">Free Consultations</a>
+                <a href="../projects/doctor-matching-software.html">Doctor Matching Software</a>
+                <a href="../projects/policy-advocacy.html">Policy Advocacy</a>
+            </div>
+        </li>
+        <li><a href="#">Opportunities</a>
+            <div class="dropdown-content">
+                <a href="../opportunities/volunteering-internships.html">Volunteering & Internships</a>
+                <a href="../opportunities/apply.html">Apply</a>
+            </div>
+        </li>
+        <li><a href="#">Blog</a>
+            <div class="dropdown-content">
+                <a href="research.html">Research</a>
+                <a href="latest-blog-posts.html">Latest Blog Posts</a>
+                <a href="submit-post.html">Submit a Post</a>
+            </div>
+        </li>
+        <li><a href="../contact-us.html">Contact Us</a></li>
+    </ul>
+</nav>
+
+
+<div class = "page-header">
+    <h1>Latest Blog Posts</h1>
+</div>
+
+<footer>
+    <p>&copy; 2024 EquiCareConnect. All rights reserved.</p>
+</footer>
+
+<script>
+document.addEventListener('DOMContentLoaded', () => {
+    const container = document.getElementById('blog-posts-container');
+
+    fetch('blog-posts.json')
+        .then(response => {
+            console.log('Response:', response); // Debug: Check response object
+            if (!response.ok) {
+                throw new Error('Network response was not ok');
+            }
+            return response.json();
+        })
+        .then(data => {
+            console.log('Data:', data); // Debug: Check parsed JSON data
+            data.forEach(post => {
+                const postElement = document.createElement('div');
+                postElement.classList.add('blog-post');
+                
+                const postDate = new Date(post.dateTime).toLocaleDateString('en-US', {
+                    year: 'numeric',
+                    month: 'long',
+                    day: 'numeric'
+                });
+
+                postElement.innerHTML = `
+                    <h2>${post.title}</h2>
+                    <p><strong>${post.name}</strong> | ${postDate}</p>
+                    <p>${post.summary}</p>
+                    <p>${post.content}</p>
+                `;
+
+                container.appendChild(postElement);
+            });
+        })
+        .catch(error => {
+            console.error('Error fetching blog posts:', error);
+        });
+});
+</script>
+
+<script>
+    document.addEventListener('DOMContentLoaded', () => {
+        const container = document.getElementById('blog-posts-container');
+    
+        const data = [
+            {
+                "title": "Test Post",
+                "name": "Test Author",
+                "summary": "This is a test summary.",
+                "content": "This is the test content.",
+                "dateTime": "2024-07-20T10:00:00Z"
+            }
+        ];
+    
+        data.forEach(post => {
+            const postElement = document.createElement('div');
+            postElement.classList.add('blog-post');
+            
+            const postDate = new Date(post.dateTime).toLocaleDateString('en-US', {
+                year: 'numeric',
+                month: 'long',
+                day: 'numeric'
+            });
+    
+            postElement.innerHTML = `
+                <h2>${post.title}</h2>
+                <p><strong>${post.name}</strong> | ${postDate}</p>
+                <p>${post.summary}</p>
+                <p>${post.content}</p>
+            `;
+    
+            container.appendChild(postElement);
+        });
+    });
+    </script>
+    
+
+</body>
+</html>

@@ -1,0 +1,316 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>EquiCareConnect - Submit a Post</title>
+    <link rel="stylesheet" href="../cookie-consent.css"> <!-- Link to cookie CSS file -->
+    <link rel="stylesheet" href="../styles.css"> <!-- Link to GLOBAL CSS file -->
+    <style>
+        body {
+            background-color: #f2f2f2;
+            color: #333;
+            margin: 0;
+            padding: 0;
+            transition: background-color 0.3s ease;
+            font-family: 'Gill Sans', 'Arial', sans-serif;
+            overflow-x: hidden; 
+            box-sizing: border-box; 
+        }
+
+        header {
+            background: linear-gradient(135deg, #52a2db 0%, #1e3c72 100%);
+            color: white;
+            text-align: center;
+            padding: 1.25rem 10%;
+            position: relative;
+            border-bottom: 0.3125rem solid #fabd5e;
+            box-shadow: 0 0.25rem 0.5rem rgba(0,0,0,0.2);
+            animation: fadeIn 1s ease;
+        }
+
+        .header-container {
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+        }
+
+        .logo {
+            width: 7.5rem;
+            height: auto;
+            border-radius: 50%;
+            transition: transform 0.3s ease;
+        }
+
+        .logo:hover {
+            transform: scale(1.1);
+        }
+
+        nav {
+            background-color: #b8d6d4;
+            text-align: center;
+            padding: 0.625rem;
+            margin-bottom: 1.25rem;
+            animation: slideIn 1s ease;
+            position: relative;
+        }
+
+        .nav-links {
+            display: flex;
+            justify-content: center;
+            padding: 0;
+            margin: 0;
+            list-style: none;
+        }
+
+        .nav-links > li {
+            position: relative;
+        }
+
+        .nav-links > li > a {
+            color: #333;
+            text-decoration: none;
+            margin: 0 0.625rem;
+            font-size: 1.125rem;
+            transition: color 0.3s ease;
+            padding: 0.625rem;
+            display: inline-block;
+        }
+
+        .nav-links > li > a:hover {
+            color: #52a2db;
+            transform: scale(1.1);
+        }
+
+        .dropdown-content {
+            display: none;
+            position: absolute;
+            top: 100%;
+            left: 0;
+            background-color: #b8d6d4;
+            padding: 0.625rem;
+            border-radius: 0.3125rem;
+            box-shadow: 0 0 0.625rem rgba(0, 0, 0, 0.1);
+            width: 12.5rem;
+            z-index: 1000;
+        }
+
+        .dropdown-content a {
+            display: block;
+            color: #333;
+            text-decoration: none;
+            padding: 0.625rem;
+            transition: background-color 0.3s ease;
+        }
+
+        .dropdown-content a:hover {
+            background-color: #52a2db;
+            color: white;
+        }
+
+        .nav-links > li:hover .dropdown-content {
+            display: block;
+        }
+
+        .container {
+            display: flex;
+            justify-content: space-around;
+            align-items: center;
+            margin: 1.25rem auto;
+            padding: 1.875rem;
+            background-color: white;
+            border-radius: 0.625rem;
+            box-shadow: 0 0 0.625rem rgba(0,0,0,0.1);
+            max-width: 75rem;
+            flex-direction: column;
+        }
+
+        .container h1 {
+            color: #52a2db;
+            text-align: center;
+            margin-bottom: 1.25rem;
+        }
+
+        label {
+            display: block;
+            margin-bottom: 0.5rem;
+        }
+
+        input[type="text"],
+        textarea {
+            width: 56.25rem;
+            max-width: 56.25rem;
+            padding: 0.625rem;
+            margin-bottom: 0.9375rem;
+            border: 1px solid #ccc;
+            border-radius: 0.3125rem;
+            font-size: 1rem;
+        }
+
+        textarea {
+            height: 9.375rem;
+        }
+
+        input[type="submit"] {
+            background-color: #fabd5e;
+            color: white;
+            padding: 0.625rem 1.25rem;
+            border: none;
+            border-radius: 0.3125rem;
+            cursor: pointer;
+            font-size: 1.125rem;
+            transition: background-color 0.3s ease;
+        }
+
+        input[type="submit"]:hover {
+            background-color: #f0a330;
+            transition: background-color 0.3s ease;
+            transform: scale(1.05)
+        }
+
+        footer {
+            text-align: center;
+            padding: 0.625rem;
+            background-color: #52a2db;
+            color: white;
+            position: relative;
+            bottom: 0;
+            width: 100%;
+        }
+
+        .warning {
+            color: red;
+            font-size: 1rem;
+            margin-bottom: 1.25rem;
+        }
+
+        @keyframes slideIn {
+            from {
+                transform: translateY(-1.25rem);
+                opacity: 0;
+            }
+            to {
+                transform: translateY(0);
+                opacity: 1;
+            }
+        }
+
+        @keyframes fadeIn {
+            from {
+                opacity: 0;
+            }
+            to {
+                opacity: 1;
+            }
+        }
+    </style>
+</head>
+<body>
+
+    <header>
+        <div class = "header-container">
+            <img src="../pictures/EquiCareConnect.jpeg" alt="EquiCareConnect Logo" class="logo">
+            <h1>EquiCareConnect</h1>
+        </div>
+    </header>
+
+<nav>
+    <ul class="nav-links">
+        <li><a href="../index.html">Home</a></li>
+        <li><a href="#">Fighting for a Cause</a>
+            <div class="dropdown-content">
+                <a href="../causes/fundraising.html">Fundraising</a>
+                <a href="../causes/healthcare-social.html">Healthcare Accessibility</a>
+                <a href="../causes/chronic-diseases.html">Chronic Diseases</a>
+                <a href="../causes/mental-health.html">Mental Health</a>
+                <a href="../causes/infant-maternal-health.html">Infant and Maternal Health</a>
+                <a href="../causes/health-equity.html">Health Equity</a>
+                <a href="../causes/helpful-resources.html">Helpful Resources</a>
+            </div>
+        </li>
+        <li><a href="#">About Us</a>
+            <div class="dropdown-content">
+                <a href="../about/founders.html">Founders</a>
+                <a href="../about/partnerships.html">Partnerships</a>
+                <a href="../about/volunteers-and-interns.html">Volunteers & Interns</a>
+            </div>
+        </li>
+        <li><a href="#">Projects</a>
+            <div class="dropdown-content">
+                <a href="../projects/free-consultations.html">Free Consultations</a>
+                <a href="../projects/doctor-matching-software.html">Doctor Matching Software</a>
+                <a href="../projects/policy-advocacy.html">Policy Advocacy</a>
+            </div>
+        </li>
+        <li><a href="#">Opportunities</a>
+            <div class="dropdown-content">
+                <a href="../opportunities/volunteering-internships.html">Volunteering & Internships</a>
+                <a href="../opportunities/apply.html">Apply</a>
+            </div>
+        </li>
+        <li><a href="#">Blog</a>
+            <div class="dropdown-content">
+                <a href="research.html">Research</a>
+                <a href="latest-blog-posts.html">Latest Blog Posts</a>
+                <a href="submit-post.html">Submit a Post</a>
+            </div>
+        </li>
+        <li><a href="../contact-us.html">Contact Us</a></li>
+    </ul>
+</nav>
+
+<div class = "container">
+    <form id="submission-form" action="submit-post.php" method="post">
+        <h1>Submit a Post</h1>
+        <p class="warning">Please note: If you provide your name, it will be displayed publicly along with your post. You may also choose to submit your post anonymously.</p>
+        <label for="name">Name (or select "Anonymous"):</label>
+        <input type="text" id="name" name="name" placeholder="Anonymous"><br><br>
+        <label for="title">Title of Post:</label>
+        <input type="text" id="title" name="title" required><br><br>
+        <label for="summary">Summary:</label>
+        <textarea id="summary" name="summary" required></textarea><br><br>
+        <label for="content">Content:</label>
+        <textarea id="content" name="content" required></textarea><br><br>
+        <input type="submit" value="Submit Post">
+    </form>
+</div>
+
+<footer>
+    <p>&copy; 2024 EquiCareConnect. All rights reserved.</p>
+
+</footer>
+
+<script>
+document.addEventListener('DOMContentLoaded', () => {
+    const form = document.getElementById('submission-form');
+
+    form.addEventListener('submit', async (e) => {
+        e.preventDefault();
+
+        try {
+            const formData = new FormData(form);
+            console.log('Form Data:', formData); // Check form data in console
+
+            const response = await fetch('submit-post.php', {
+                method: 'POST',
+                body: formData
+            });
+
+            if (!response.ok) {
+                throw new Error('Error submitting post');
+            }
+
+            const result = await response.json();
+            console.log('Submission result:', result); // Check response in console
+
+            // Redirect to the latest blog posts page
+            window.location.href = 'latest-blog-posts.html';
+        } catch (error) {
+            console.error('Error:', error.message);
+        }
+    });
+});
+</script>
+
+</body>
+</html>

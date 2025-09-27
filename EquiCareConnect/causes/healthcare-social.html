@@ -1,0 +1,417 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>EquiCareConnect - Health Accessibility & Social Determinants</title>
+    <link rel="stylesheet" href="../cookie-consent.css"> <!-- Link to cookie CSS file -->
+    <link rel="stylesheet" href="../styles.css"> <!-- Link to GLOBAL CSS file -->
+    <style>
+        body {
+            background-color: #f2f2f2;
+            color: #333;
+            margin: 0;
+            padding: 0;
+            transition: background-color 0.3s ease;
+            font-family: 'Gill Sans', 'Arial', sans-serif;
+            overflow-x: hidden; 
+            box-sizing: border-box; 
+        }
+
+        header {
+            background: linear-gradient(135deg, #52a2db 0%, #1e3c72 100%);
+            color: white;
+            text-align: center;
+            padding: 1.25rem 10%;
+            position: relative;
+            border-bottom: 0.3125rem solid #fabd5e;
+            box-shadow: 0 0.25rem 0.5rem rgba(0,0,0,0.2);
+            animation: fadeIn 1s ease;
+        }
+
+        .header-container {
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+        }
+
+        .page-header {
+            background-color: #52a2db;
+            color: white;
+            text-align: center;
+            padding: 1.25rem;
+            border-bottom: 0.3125rem solid #fabd5e;
+            animation: slideIn 1s ease;
+        }
+
+        .page-header h1 {
+            margin: 0;
+        }
+
+        .logo {
+            width: 7.5rem;
+            height: auto;
+            border-radius: 50%;
+            transition: transform 0.3s ease;
+        }
+
+        .logo:hover {
+            transform: scale(1.1);
+        }
+
+        h1 {
+            font-size: 2.5rem;
+            margin: 0.625rem 0;
+            font-family: 'Georgia', serif;
+            text-shadow: 0.125rem 0.125rem 0.25rem rgba(0, 0, 0, 0.6);
+        }
+
+        nav {
+            background-color: #b8d6d4;
+            text-align: center;
+            padding: 0.625rem;
+            margin-bottom: 1.25rem;
+            box-shadow: 0 0.125rem 0.25rem rgba(0,0,0,0.1);
+            animation: slideIn 1s ease;
+            position: relative;
+        }
+
+        .nav-links {
+            display: flex;
+            justify-content: center;
+            padding: 0;
+            margin: 0;
+            list-style: none;
+        }
+
+        .nav-links > li {
+            position: relative;
+        }
+
+        .nav-links > li > a {
+            color: #333;
+            text-decoration: none;
+            margin: 0 0.625rem;
+            font-size: 1.125rem;
+            transition: color 0.3s ease;
+            padding: 0.625rem;
+            display: inline-block;
+            border-radius: 0.3125rem;
+        }
+
+        .nav-links > li > a:hover {
+            color: #52a2db;
+            background-color: rgba(82, 162, 219, 0.1);
+            transform: scale(1.1);
+        }
+
+        .dropdown-content {
+            display: none;
+            position: absolute;
+            top: 100%;
+            left: 0;
+            background-color: #b8d6d4;
+            padding: 0.625rem;
+            border-radius: 0.3125rem;
+            box-shadow: 0 0 0.625rem rgba(0, 0, 0, 0.1);
+            width: 12.5rem;
+            z-index: 1000;
+        }
+
+        .dropdown-content a {
+            display: block;
+            color: #333;
+            text-decoration: none;
+            padding: 0.625rem;
+            transition: background-color 0.3s ease;
+        }
+
+        .dropdown-content a:hover {
+            background-color: #52a2db;
+            color: white;
+        }
+
+        .nav-links > li:hover .dropdown-content {
+            display: block;
+        }
+
+        .full-width-text {
+            background-color: #52a2db;
+            color: #fff;
+            text-align: center;
+            padding: 1.25rem;
+            margin: 1.25rem 0;
+            border-bottom: 0.3125rem solid #fabd5e;
+            animation: slideIn 1s ease;
+            width: 100%;
+            box-sizing: border-box;
+        }
+
+        .full-width-text h2 {
+            font-size: 1.5625rem;
+            margin: 0;
+        }
+
+        .full-width-text p {
+            font-size: 1.125rem;
+            margin-top: 0.625rem;
+        }
+
+        .section-container {
+            padding: 1.25rem;
+            margin: 1.25rem auto;
+            max-width: 56.25rem;
+            text-align: center;
+            background: #ffffff;
+            border-radius: 0.625rem;
+            box-shadow: 0 0.25rem 0.5rem rgba(0,0,0,0.1);
+            animation: fadeIn 1s ease;
+        }
+
+        section h2 {
+            color: #52a2db;
+            margin-bottom: 1.25rem;
+        }
+
+        section p, ul {
+            line-height: 1.6;
+        }
+
+        .social-section {
+            padding: 1.25rem;
+            margin: 1.25rem auto;
+            max-width: 56.25rem;
+            text-align: center;
+            animation: fadeIn 1s ease;
+            background-color: #ffffff;
+            box-shadow: 0 0 0.625rem rgba(0,0,0,0.1);
+            border-radius: 0.625rem;
+        }
+
+        .social-section h2 {
+            color: #52a2db;
+            margin-bottom: 1.25rem;
+            font-size: 2.5rem;
+        }
+
+        .social-section p {
+            line-height: 1.8;
+            font-size: 1.2rem;
+        }
+
+        .social-section ul {
+            list-style-type: none;
+            padding: 0;
+        }
+
+        .social-section ul li {
+            margin: 0.625rem 0;
+        }
+
+        .social-section .important {
+            font-weight: bold;
+            color: #52a2db;
+            margin-top: 1.25rem;
+            font-size: 1.3rem;
+        }
+
+        p {
+            font-size: 1.2rem;
+            line-height: 1.6;
+        }
+
+        .section-container li {
+            font-size: 1.2rem;
+            line-height: 1.6;
+        }
+
+        footer {
+            text-align: center;
+            padding: 0.625rem;
+            background-color: #52a2db;
+            color: white;
+            position: relative;
+            bottom: 0;
+            width: 100%;
+            animation: fadeIn 1s ease;
+        }
+
+        /* Cookie Banner */
+        #cookie-banner {
+            position: fixed;
+            bottom: 0;
+            width: 100%;
+            background: #333;
+            color: #fff;
+            text-align: center;
+            padding: 0.9375rem;
+            display: none; /* Hidden by default */
+            z-index: 1000;
+        }
+
+        #cookie-banner button {
+            background: #fabd5e;
+            color: #333;
+            border: none;
+            padding: 0.625rem 1.25rem;
+            border-radius: 0.3125rem;
+            cursor: pointer;
+            font-size: 1rem;
+            transition: background-color 0.3s ease;
+        }
+
+        #cookie-banner button:hover {
+            background: #f0a330;
+        }
+        @keyframes slideIn {
+            from {
+                transform: translateY(-1.25rem);
+                opacity: 0;
+            }
+            to {
+                transform: translateY(0);
+                opacity: 1;
+            }
+        }
+
+        @keyframes fadeIn {
+            from {
+                opacity: 0;
+            }
+            to {
+                opacity: 1;
+            }
+        }
+    </style>
+</head>
+<body>
+
+    <header>
+        <div class = "header-container">
+            <img src="../pictures/EquiCareConnect.jpeg" alt="EquiCareConnect Logo" class="logo">
+            <h1>EquiCareConnect</h1>
+        </div>
+    </header>
+
+<nav>
+    <ul class="nav-links">
+        <li><a href="../index.html">Home</a></li>
+        <li><a href="#">Fighting for a Cause</a>
+            <div class="dropdown-content">
+                <a href="fundraising.html">Fundraising</a>
+                <a href="healthcare-social.html">Healthcare Accessibility</a>
+                <a href="chronic-diseases.html">Chronic Diseases</a>
+                <a href="mental-health.html">Mental Health</a>
+                <a href="infant-maternal-health.html">Infant and Maternal Health</a>
+                <a href="health-equity.html">Health Equity</a>
+                <a href="helpful-resources.html">Helpful Resources</a>
+            </div>
+        </li>
+        <li><a href="#">About Us</a>
+            <div class="dropdown-content">
+                <a href="../about/founders.html">Founders</a>
+                <a href="../about/partnerships.html">Partnerships</a>
+                <a href="../about/volunteers-and-interns.html">Volunteers & Interns</a>
+            </div>
+        </li>
+        <li><a href="#">Projects</a>
+            <div class="dropdown-content">
+                <a href="../projects/free-consultations.html">Free Consultations</a>
+                <a href="../projects/doctor-matching-software.html">Doctor Matching Software</a>
+                <a href="../projects/policy-advocacy.html">Policy Advocacy</a>
+            </div>
+        </li>
+        <li><a href="#">Opportunities</a>
+            <div class="dropdown-content">
+                <a href="../opportunities/volunteering-internships.html">Volunteering & Internships</a>
+                <a href="../opportunities/apply.html">Apply</a>
+            </div>
+        </li>
+        <li><a href="#">Blog</a>
+            <div class="dropdown-content">
+                <a href="../blog/research.html">Research</a>
+                <a href="../blog/latest-blog-posts.html">Latest Blog Posts</a>
+                <a href="../blog/submit-post.html">Submit a Post</a>
+            </div>
+        </li>
+        <li><a href="../contact-us.html">Contact Us</a></li>
+    </ul>
+</nav>
+
+<div class = "page-header">
+    <h1>Access to Healthcare</h1>
+</div>
+
+<section class = "section-container">
+    <h2>Current Challenges</h2>
+    <ul>
+        <li>Lack of health insurance</li>
+        <li>Limited availability of healthcare providers</li>
+        <li>Transportation barriers</li>
+        <li>High cost of medications</li>
+    </ul>
+</section>
+
+<div class="full-width-text">
+    <h2>November 9, 2023: Uninsured Rate Trends</h2>
+    <p>In 2022, 26 million people — or 7.9 percent of the population – were uninsured. This was the lowest uninsured rate since 2017, reflecting a significant improvement in coverage due to policies such as Medicaid expansion and the Affordable Care Act.</p>
+</div>
+
+<section class = "section-container">
+    <h2>Healthcare Coverage Insights</h2>
+    <p>The Census report highlights how various health coverage programs are vital in reducing the number of uninsured individuals. For example, Medicaid expansion has played a key role in providing coverage to more low-income individuals.</p>
+</section>
+
+<div class = "page-header">
+    <h1>Social Determinants of Health</h1>
+</div>
+
+<section class = "social-section">
+    <p>
+        Social determinants of health are conditions in the places where people live, learn, work, and play that affect health risks and outcomes. The social determinants of health are shaped by the distribution of money, power, and resources at global, national, and local levels.
+    </p>
+    <p>
+        These factors can include economic stability, education access and quality, healthcare access and quality, neighborhood and built environment, and social and community context. Addressing these determinants is crucial for improving health equity and overall health outcomes.
+    </p>
+    <ul>
+        <li><strong>Economic Stability:</strong> Income, employment, expenses, debt, medical bills.</li>
+        <li><strong>Education Access and Quality:</strong> Literacy, language, early childhood education, vocational training.</li>
+        <li><strong>Healthcare Access and Quality:</strong> Health insurance coverage, access to primary care, health literacy.</li>
+        <li><strong>Neighborhood and Built Environment:</strong> Housing quality, transportation, access to healthy foods, environmental conditions.</li>
+        <li><strong>Social and Community Context:</strong> Social cohesion, discrimination, civic participation, incarceration.</li>
+    </ul>
+    <p class="important">
+        Addressing social determinants of health is essential for reducing health disparities and improving health outcomes for all.
+    </p>
+</section>
+
+<footer>
+    <p>&copy; 2024 EquiCareConnect. All rights reserved.</p>
+
+</footer>
+
+<div id="cookie-banner">
+    <p>We use cookies to improve your experience on our site. <a href="#">Learn more</a>.</p>
+    <button id="accept-cookies">Got it!</button>
+</div>
+
+
+<script>
+    document.addEventListener('DOMContentLoaded', function () {
+        // Cookie banner handling
+        const cookieBanner = document.getElementById('cookie-banner');
+        const acceptCookiesButton = document.getElementById('accept-cookies');
+
+        if (!localStorage.getItem('cookiesAccepted')) {
+            cookieBanner.style.display = 'block';
+        }
+
+        acceptCookiesButton.addEventListener('click', function () {
+            localStorage.setItem('cookiesAccepted', 'true');
+            cookieBanner.style.display = 'none';
+        });
+    });
+</script>
+
+</body>
+</html>

@@ -1,0 +1,361 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>EquiCareConnect - Volunteering</title>
+    <link rel="stylesheet" href="../cookie-consent.css"> <!-- Link to cookie CSS file -->
+    <link rel="stylesheet" href="../styles.css"> <!-- Link to GLOBAL CSS file -->
+    <style>
+        body {
+            background-color: #f2f2f2;
+            color: #333;
+            margin: 0;
+            padding: 0;
+            transition: background-color 0.3s ease;
+            font-family: 'Gill Sans', 'Arial', sans-serif;
+            overflow-x: hidden; 
+            box-sizing: border-box; 
+        }
+
+        header {
+            background: linear-gradient(135deg, #52a2db 0%, #1e3c72 100%);
+            color: white;
+            text-align: center;
+            padding: 1.25rem 10%;
+            position: relative;
+            border-bottom: 0.3125rem solid #fabd5e;
+            box-shadow: 0 0.25rem 0.5rem rgba(0,0,0,0.2);
+            animation: fadeIn 1s ease;
+        }
+
+        .header-container {
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+        }
+
+        .page-header {
+            background-color: #52a2db;
+            color: white;
+            text-align: center;
+            padding: 1.25rem;
+            border-bottom: 0.3125rem solid #fabd5e;
+            animation: slideIn 1s ease;
+        }
+
+        .page-header h1 {
+            margin: 0;
+        }
+
+        .logo {
+            width: 7.5rem;
+            height: auto;
+            border-radius: 50%;
+            transition: transform 0.3s ease;
+        }
+
+        .logo:hover {
+            transform: scale(1.1);
+        }
+
+        nav {
+            background-color: #b8d6d4;
+            text-align: center;
+            padding: 0.625rem;
+            margin-bottom: 1.25rem;
+            animation: slideIn 1s ease;
+            position: relative;
+        }
+
+        .nav-links {
+            display: flex;
+            justify-content: center;
+            padding: 0;
+            margin: 0;
+            list-style: none;
+        }
+
+        .nav-links > li {
+            position: relative;
+        }
+
+        .nav-links > li > a {
+            color: #333;
+            text-decoration: none;
+            margin: 0 0.625rem;
+            font-size: 1.125rem;
+            transition: color 0.3s ease;
+            padding: 0.625rem;
+            display: inline-block;
+        }
+
+        .nav-links > li > a:hover {
+            color: #52a2db;
+            transform: scale(1.1);
+        }
+
+        .dropdown-content {
+            display: none;
+            position: absolute;
+            top: 100%;
+            left: 0;
+            background-color: #b8d6d4;
+            padding: 0.625rem;
+            border-radius: 0.3125rem;
+            box-shadow: 0 0 0.625rem rgba(0, 0, 0, 0.1);
+            width: 12.5rem;
+            z-index: 1000;
+        }
+
+        .dropdown-content a {
+            display: block;
+            color: #333;
+            text-decoration: none;
+            padding: 0.625rem;
+            transition: background-color 0.3s ease;
+        }
+
+        .dropdown-content a:hover {
+            background-color: #52a2db;
+            color: white;
+        }
+
+        .nav-links > li:hover .dropdown-content {
+            display: block;
+        }
+
+        .container {
+            display: flex;
+            justify-content: space-around;
+            flex-direction: column;
+            align-items: center;
+            margin: 1.25rem auto;
+            padding: 1.25rem;
+            border-radius: 0.625rem;
+            max-width: 75rem;
+            box-shadow: 0 0 0.625rem rgba(0,0,0,0.1);
+            background-color: white;
+            width: 100%;
+        }
+
+        .volunteering-text p {
+            text-align: center;
+            line-height: 1.6;
+            margin-bottom: 1.875rem;
+            font-size: 1.2rem;
+            margin-top: -0.625rem;
+        }
+
+        .volunteering-text h2 {
+            text-align: center;
+            line-height: 1.6;
+            margin-bottom: 0.625rem;
+            color: #52a2db;
+        }
+
+        .opportunity h3 {
+            color: #63a7d8;
+            line-height: 1.6;
+            text-align: center;
+            margin: 0;
+            font-size: 1.4rem;
+            padding-top: 0.625rem;
+        }
+
+        .opportunity p {
+            text-align: center;
+            margin: 0;
+            line-height: 1.6;
+            font-size: 1.2rem;
+            margin-top: -0.625rem;
+            margin-bottom: 0.9375rem;
+        }
+
+        .apply {
+            margin-top: 1.25rem;
+            display: inline-block;
+            background-color: #fabd5e;
+            color: white;
+            text-decoration: none;
+            padding: 0.625rem 1.25rem;
+            border-radius: 0.3125rem;
+            border: none;
+            font-size: 1.375rem;
+            font-weight: bold;
+            margin-bottom: 1.25rem;
+            transition: background-color 0.5s ease;
+            cursor: pointer;
+        }
+
+        .apply:hover {
+            background-color: #f0a330;
+            color: white;
+            transition: background-color 0.5s ease;
+            transform: scale(1.05);
+            cursor: pointer;
+        }
+
+        footer {
+            text-align: center;
+            padding: 1.25rem;
+            background-color: #52a2db;
+            color: white;
+            position: relative;
+            bottom: 0;
+            width: 100%;
+        }
+        #cookie-banner {
+            position: fixed;
+            bottom: 0;
+            width: 100%;
+            background: #333;
+            color: #fff;
+            text-align: center;
+            padding: 0.625rem;
+            box-shadow: 0 -0.125rem 0.625rem rgba(0,0,0,0.2);
+            display: none;
+        }
+
+        #cookie-banner p {
+            margin: 0;
+        }
+
+        #cookie-banner a {
+            color: #fabd5e;
+            text-decoration: none;
+        }
+
+        #cookie-banner a:hover {
+            text-decoration: underline;
+        }
+
+        #cookie-banner button {
+            background: #fabd5e;
+            border: none;
+            color: #333;
+            padding: 0.3125rem 0.625rem;
+            border-radius: 0.3125rem;
+            cursor: pointer;
+            margin-left: 0.625rem;
+        }
+        @keyframes slideIn {
+            from {
+                transform: translateY(-1.25rem);
+                opacity: 0;
+            }
+            to {
+                transform: translateY(0);
+                opacity: 1;
+            }
+        }
+
+        @keyframes fadeIn {
+            from {
+                opacity: 0;
+            }
+            to {
+                opacity: 1;
+            }
+        }
+    </style>
+</head>
+<body>
+
+    <header>
+        <div class = "header-container">
+            <img src="../pictures/EquiCareConnect.jpeg" alt="EquiCareConnect Logo" class="logo">
+            <h1>EquiCareConnect</h1>
+        </div>
+    </header>
+
+<nav>
+    <ul class="nav-links">
+        <li><a href="../index.html">Home</a></li>
+        <li><a href="#">Fighting for a Cause</a>
+            <div class="dropdown-content">
+                <a href="../causes/fundraising.html">Fundraising</a>
+                <a href="../causes/healthcare-social.html">Healthcare Accessibility</a>
+                <a href="../causes/chronic-diseases.html">Chronic Diseases</a>
+                <a href="../causes/mental-health.html">Mental Health</a>
+                <a href="../causes/infant-maternal-health.html">Infant and Maternal Health</a>
+                <a href="../causes/health-equity.html">Health Equity</a>
+                <a href="../causes/helpful-resources.html">Helpful Resources</a>
+            </div>
+        </li>
+        <li><a href="#">About Us</a>
+            <div class="dropdown-content">
+                <a href="../about/founders.html">Founders</a>
+                <a href="../about/partnerships.html">Partnerships</a>
+                <a href="../about/volunteers-and-interns.html">Volunteers & Interns</a>
+            </div>
+        </li>
+        <li><a href="#">Projects</a>
+            <div class="dropdown-content">
+                <a href="../projects/free-consultations.html">Free Consultations</a>
+                <a href="../projects/doctor-matching-software.html">Doctor Matching Software</a>
+                <a href="../projects/policy-advocacy.html">Policy Advocacy</a>
+            </div>
+        </li>
+        <li><a href="#">Opportunities</a>
+            <div class="dropdown-content">
+                <a href="volunteering-internships.html">Volunteering & Internships</a>
+                <a href="apply.html">Apply</a>
+            </div>
+        </li>
+        <li><a href="#">Blog</a>
+            <div class="dropdown-content">
+                <a href="../blog/research.html">Research</a>
+                <a href="../blog/latest-blog-posts.html">Latest Blog Posts</a>
+                <a href="../blog/submit-post.html">Submit a Post</a>
+            </div>
+        </li>
+        <li><a href="../contact-us.html">Contact Us</a></li>
+    </ul>
+</nav>
+
+<div class="page-header">
+    <h1>Opportunities</h1>
+</div>
+
+<div class="container">
+    <section class = "volunteering-text">
+        <h2>Volunteering & Internships</h2>
+        <p>
+            Working with EquiCareConnect offers you a chance to contribute to meaningful projects aimed at improving health equity and access. As a volunteer or intern, you will gain valuable experience, work alongside dedicated professionals, and make a positive impact on communities in need. Whether you have a few hours to spare each week or can commit to a more extensive role, we have opportunities that match your interests and skills. We welcome volunteers and interns from all backgrounds to help us achieve our mission of promoting health equity.</p>
+    </section>
+
+    <div class = "volunteer-opportunities">
+        <div class = "opportunity">
+            <h3>Community Outreach</h3>
+            <p>Assist in organizing and participating in community events to raise awareness about healthcare issues and resources.</p>
+        </div>
+        <div class = "opportunity">
+            <h3>Data Collection</h3>
+            <p>Help us gather and analyze data to support our advocacy efforts and improve healthcare services.</p>
+        </div>
+        <div class = "opportunity">
+            <h3>Event Coordination</h3>
+            <p>Support our team in planning and executing events that aim to bridge the gap in healthcare access.</p>
+        </div>
+    </div>
+    <a href = "apply.html">
+        <button class = "apply">Apply Now!</button>
+    </a>
+</div>
+
+
+<footer>
+    <p>&copy; 2024 EquiCareConnect. All rights reserved.</p>
+</footer>
+
+<!-- Cookie consent banner -->
+<div id="cookie-banner">
+    <p>We use cookies to enhance your experience. By continuing to visit this site, you agree to our use of cookies. <a href="cookie-policy.html" id="cookie-learn-more">Learn More</a></p>
+    <button id="cookie-accept">Accept</button>
+</div>
+
+<script src="cookie-consent.js"></script>
+
+</body>
+</html>

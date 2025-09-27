@@ -1,0 +1,356 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>EquiCareConnect - Partnerships</title>
+    <link rel="stylesheet" href="../cookie-consent.css"> <!-- Link to cookie CSS file -->
+    <link rel="stylesheet" href="../styles.css"> <!-- Link to GLOBAL CSS file -->
+    <style>
+        body {
+            background-color: #f2f2f2;
+            color: #333;
+            margin: 0;
+            padding: 0;
+            transition: background-color 0.3s ease;
+            font-family: 'Gill Sans', 'Arial', sans-serif;
+            overflow-x: hidden; 
+            box-sizing: border-box; 
+        }
+
+        header {
+            background: linear-gradient(135deg, #52a2db 0%, #1e3c72 100%);
+            color: white;
+            text-align: center;
+            padding: 1.25rem 10%;
+            position: relative;
+            border-bottom: 0.3125rem solid #fabd5e;
+            box-shadow: 0 0.25rem 0.5rem rgba(0,0,0,0.2);
+            animation: fadeIn 1s ease;
+        }
+
+        .header-container {
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+        }
+
+        .logo {
+            width: 7.5rem;
+            height: auto;
+            border-radius: 50%;
+            transition: transform 0.3s ease;
+        }
+
+        .logo:hover {
+            transform: scale(1.1);
+        }
+
+        nav {
+            background-color: #b8d6d4;
+            text-align: center;
+            padding: 0.625rem;
+            margin-bottom: 1.25rem;
+            animation: slideIn 1s ease;
+            position: relative;
+        }
+
+        .nav-links {
+            display: flex;
+            justify-content: center;
+            padding: 0;
+            margin: 0;
+            list-style: none;
+        }
+
+        .nav-links > li {
+            position: relative;
+        }
+
+        .nav-links > li > a {
+            color: #333;
+            text-decoration: none;
+            margin: 0 0.625rem;
+            font-size: 1.125rem;
+            transition: color 0.3s ease;
+            padding: 0.625rem;
+            display: inline-block;
+        }
+
+        .nav-links > li > a:hover {
+            color: #52a2db;
+            transform: scale(1.1);
+        }
+
+        .dropdown-content {
+            display: none;
+            position: absolute;
+            top: 100%;
+            left: 0;
+            background-color: #b8d6d4;
+            padding: 0.625rem;
+            border-radius: 0.3125rem;
+            box-shadow: 0 0 0.625rem rgba(0, 0, 0, 0.1);
+            width: 12.5rem;
+            z-index: 1000;
+        }
+
+        .dropdown-content a {
+            display: block;
+            color: #333;
+            text-decoration: none;
+            padding: 0.625rem;
+            transition: background-color 0.3s ease;
+        }
+
+        .dropdown-content a:hover {
+            background-color: #52a2db;
+            color: white;
+        }
+
+        .nav-links > li:hover .dropdown-content {
+            display: block;
+        }
+
+        .page-header {
+            background-color: #52a2db;
+            color: white;
+            text-align: center;
+            padding: 1.25rem;
+            border-bottom: 0.3125rem solid #fabd5e;
+            animation: slideIn 1s ease;
+        }
+
+        .page-header h1 {
+            margin: 0;
+        }
+
+        section {
+            padding: 1.25rem;
+            margin: 1.25rem auto;
+            max-width: 75rem;
+            text-align: center;
+            animation: fadeIn 1s ease;
+        }
+
+        section h2 {
+            color: #52a2db;
+            font-size: 2rem;
+            font-weight: bold;
+        }
+
+        section p {
+            line-height: 1.6;
+            font-size: 1.2rem;
+        }
+
+        .partner-container{
+            padding: 2.5rem 1.25rem;
+            margin: 1.25rem auto;
+            width: 100%;
+            text-align: center;
+            animation: fadeIn 1s ease;
+            background: linear-gradient(150deg, white 0%, #eef8ff 100%);
+            box-shadow: 0 0.25rem 0.5rem rgba(0,0,0,0.1);
+        }
+
+
+        .partner-container h1{
+            color: #52a2db;
+            text-shadow: none;
+            font-weight: bold;
+            font-family: 'Gill Sans', 'Arial', sans-serif;
+            font-size: 1.8rem;
+        }
+
+        .partner-container p{
+            color: #52a2db;
+            text-shadow: none;
+            font-family: 'Gill Sans', 'Arial', sans-serif;
+            font-size: 1.1rem;
+        }
+
+        .partner-logo{
+            height: 6rem;
+            width: 6rem;
+            object-fit: cover;
+            position: relative;
+            border-radius: 0.625rem;
+            border: solid 0.25rem #fabd5e;
+        }
+
+        .partner-logo:hover{
+            transform: scale(1.05);
+            cursor: pointer;
+        }
+
+        footer {
+            text-align: center;
+            padding: 0.625rem;
+            background-color: #52a2db;
+            color: white;
+            position: relative;
+            bottom: 0;
+            width: 100%;
+        }
+
+        /* Cookie Banner */
+        #cookie-banner {
+            position: fixed;
+            bottom: 0;
+            width: 100%;
+            background: #333;
+            color: #fff;
+            text-align: center;
+            padding: 0.625rem;
+            box-shadow: 0 -0.125rem 0.625rem rgba(0,0,0,0.2);
+            display: none;
+        }
+
+        #cookie-banner p {
+            margin: 0;
+        }
+
+        #cookie-banner a {
+            color: #fabd5e;
+            text-decoration: none;
+        }
+
+        #cookie-banner a:hover {
+            text-decoration: underline;
+        }
+
+        #cookie-banner button {
+            background: #fabd5e;
+            border: none;
+            color: #333;
+            padding: 0.3125rem 0.625rem;
+            border-radius: 0.3125rem;
+            cursor: pointer;
+            margin-left: 0.625rem;
+        }
+
+        .container {
+            display: flex;
+            justify-content: space-around;
+            flex-direction: column;
+            align-items: center;
+            margin: 1.25rem auto;
+            padding: 1.25rem;
+            background-color: white;
+            border-radius: 0.625rem;
+            box-shadow: 0 0 0.625rem rgba(0,0,0,0.1);
+            max-width: 75rem;
+        }
+        @keyframes slideIn {
+            from {
+                transform: translateY(-1.25rem);
+                opacity: 0;
+            }
+            to {
+                transform: translateY(0);
+                opacity: 1;
+            }
+        }
+
+        @keyframes fadeIn {
+            from {
+                opacity: 0;
+            }
+            to {
+                opacity: 1;
+            }
+        }
+    </style>
+</head>
+<body>
+
+    <header>
+        <div class = "header-container">
+            <img src="../pictures/EquiCareConnect.jpeg" alt="EquiCareConnect Logo" class="logo">
+            <h1>EquiCareConnect</h1>
+        </div>
+    </header>
+
+<nav>
+    <ul class="nav-links">
+        <li><a href="../index.html">Home</a></li>
+        <li><a href="#">Fighting for a Cause</a>
+            <div class="dropdown-content">
+                <a href="../causes/fundraising.html">Fundraising</a>
+                <a href="../causes/healthcare-social.html">Healthcare Accessibility</a>
+                <a href="../causes/chronic-diseases.html">Chronic Diseases</a>
+                <a href="../causes/mental-health.html">Mental Health</a>
+                <a href="../causes/infant-maternal-health.html">Infant and Maternal Health</a>
+                <a href="../causes/health-equity.html">Health Equity</a>
+                <a href="../causes/helpful-resources.html">Helpful Resources</a>
+            </div>
+        </li>
+        <li><a href="#">About Us</a>
+            <div class="dropdown-content">
+                <a href="founders.html">Founders</a>
+                <a href="partnerships.html">Partnerships</a>
+                <a href="volunteers-and-interns.html">Volunteers & Interns</a>
+            </div>
+        </li>
+        <li><a href="#">Projects</a>
+            <div class="dropdown-content">
+                <a href="../projects/free-consultations.html">Free Consultations</a>
+                <a href="../projects/doctor-matching-software.html">Doctor Matching Software</a>
+                <a href="../projects/policy-advocacy.html">Policy Advocacy</a>
+            </div>
+        </li>
+        <li><a href="#">Opportunities</a>
+            <div class="dropdown-content">
+                <a href="../opportunities/volunteering-internships.html">Volunteering & Internships</a>
+                <a href="../opportunities/apply.html">Apply</a>
+            </div>
+        </li>
+        <li><a href="#">Blog</a>
+            <div class="dropdown-content">
+                <a href="../blog/research.html">Research</a>
+                <a href="../blog/latest-blog-posts.html">Latest Blog Posts</a>
+                <a href="../blog/submit-post.html">Submit a Post</a>
+            </div>
+        </li>
+        <li><a href="../contact-us.html">Contact Us</a></li>
+    </ul>
+</nav>
+
+<div class = "page-header">
+    <h1>EquiCareConnect's Partnerships</h1>
+</div>
+
+<div class = "container">
+    <section id = "partnering-text">
+        <h2>Partnering with Telemedicine Initiatives</h2>
+        <p>At EquiCareConnect, we are committed to enhancing healthcare access for underserved communities through innovative solutions. Telemedicine represents a promising opportunity to bridge gaps in healthcare delivery, overcoming geographical and logistical barriers.</p>
+        <p>By collaborating with telemedicine initiatives, we aim to provide critical services to those in need and improve healthcare equity. These partnerships can help us connect patients with healthcare professionals remotely, ensuring access to vital care regardless of location.</p>
+        <p>We are actively seeking collaborations with both new telemedicine startups and established programs to expand our network and enhance our service offerings. If you are involved with a telemedicine initiative or know of organizations that share our mission, we invite you to connect with us.</p>
+        <p>Additionally, we are reaching out to UN Women in Med for potential connections to innovative telemedicine startups. Their network and expertise could greatly support our efforts to build impactful partnerships and improve healthcare access for all.</p>
+        <p>Join us in making a difference in healthcare accessibility and equity.</p>
+    </section>
+</div>
+
+<div class = "partner-container">
+    <h1>Partners & Sponsors</h1>
+    <a href = "https://www.envisionstem.net" target = "_blank">
+        <img class = "partner-logo" src = "../pictures/envision-stem.png" alt = "EnvisionSTEM Logo">
+    </a>
+    <p>We are always looking to have new partners and sponsors join EquiCareConnect! Please email us at equicareconnect@gmail.com if you are interested!</p>
+</div>
+
+<footer>
+    <p>&copy; 2024 EquiCareConnect. All rights reserved.</p>
+</footer>
+
+<!-- Cookie Consent Banner -->
+<div id="cookie-banner">
+    <p>We use cookies to enhance your experience. By using our site, you agree to our <a href="privacy-policy.html">privacy policy</a>.</p>
+    <button onclick="document.getElementById('cookie-banner').style.display='none';">Got it!</button>
+</div>
+
+<script src="cookie-consent.js"></script> <!-- Link to JS file for cookie consent -->
+
+</body>
+</html>

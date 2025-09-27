@@ -1,0 +1,628 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>EquiCareConnect - About</title>
+    <link rel="stylesheet" href="cookie-consent.css"> <!-- Link to cookies CSS file -->
+    <link rel="stylesheet" href="styles.css"> <!-- Link to GLOBAL CSS file -->
+    <style>
+        body {
+            background-color: #f2f2f2;
+            color: #333;
+            margin: 0;
+            padding: 0;
+            transition: background-color 0.3s ease;
+            font-family: 'Gill Sans', 'Arial', sans-serif;
+            overflow-x: hidden; 
+            box-sizing: border-box; 
+        }
+
+        *, *::before, *::after {
+            box-sizing: inherit; /* Inherit box-sizing from body */
+        }
+
+        header {
+            background: linear-gradient(135deg, #52a2db 0%, #1e3c72 100%);
+            color: white;
+            text-align: center;
+            padding: 1.25rem 10%;
+            position: relative;
+            border-bottom: 0.3125rem solid #fabd5e;
+            box-shadow: 0 0.25rem 0.5rem rgba(0,0,0,0.2);
+            animation: fadeIn 1s ease;
+        }
+
+        .header-container {
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+        }
+
+        .logo {
+            width: 7.5rem;
+            height: auto;
+            border-radius: 50%;
+            transition: transform 0.3s ease;
+        }
+
+        .logo:hover {
+            transform: scale(1.1);
+        }
+
+        h1 {
+            font-size: 2.5rem;
+            margin: 0.625rem 0;
+            font-family: 'Georgia', serif;
+            text-shadow: 0.125rem 0.125rem 0.25rem rgba(0, 0, 0, 0.6);
+        }
+
+        nav {
+            background-color: #b8d6d4;
+            text-align: center;
+            padding: 0.625rem;
+            margin-bottom: 1.25rem;
+            box-shadow: 0 0.125rem 0.25rem rgba(0,0,0,0.1);
+            animation: slideIn 1s ease;
+            position: relative;
+        }
+
+        .nav-links {
+            display: flex;
+            justify-content: center;
+            padding: 0;
+            margin: 0;
+            list-style: none;
+        }
+
+        .nav-links > li {
+            position: relative;
+        }
+
+        .nav-links > li > a {
+            color: #333;
+            text-decoration: none;
+            margin: 0 0.625rem;
+            font-size: 1.125rem;
+            transition: color 0.3s ease;
+            padding: 0.625rem;
+            display: inline-block;
+            border-radius: 0.3125rem;
+        }
+
+        .nav-links > li > a:hover {
+            color: #52a2db;
+            background-color: rgba(82, 162, 219, 0.1);
+            transform: scale(1.1);
+        }
+
+        .dropdown-content {
+            display: none;
+            position: absolute;
+            top: 100%;
+            left: 0;
+            background-color: #b8d6d4;
+            padding: 0.625rem;
+            border-radius: 0.3125rem;
+            box-shadow: 0 0 0.625rem rgba(0, 0, 0, 0.1);
+            width: 12.5rem;
+            z-index: 1000;
+        }
+
+        .dropdown-content a {
+            display: block;
+            color: #333;
+            text-decoration: none;
+            padding: 0.625rem;
+            transition: background-color 0.3s ease;
+        }
+
+        .dropdown-content a:hover {
+            background-color: #52a2db;
+            color: white;
+        }
+
+        .nav-links > li:hover .dropdown-content {
+            display: block;
+        }
+
+        .hero {
+            background-image: url('pictures/Underprivileged-Kids-Education.jpg');
+            background-size: cover;
+            background-position: center;
+            height: 65vh;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            color: #fff;
+            text-align: center;
+            margin-top: -1.25rem;
+            position: relative;
+            overflow: hidden;
+        }
+
+        .hero::before {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            background: rgba(0, 0, 0, 0.4);
+            z-index: 1;
+        }
+
+        .hero-text {
+            position: relative;
+            z-index: 2;
+            text-shadow: 0.125rem 0.125rem 0.25rem rgba(0, 0, 0, 0.8);
+            background: rgba(0, 0, 0, 0.5);
+            padding: 1.25rem;
+            border-radius: 0.625rem;
+            transition: background-color 0.3s ease;
+        }
+
+        .hero-text:hover {
+            background: rgba(0, 0, 0, 0.6);
+        }
+
+        .hero h2 {
+            font-size: 2rem;
+            margin-bottom: 0.625rem;
+        }
+
+        .hero p {
+            font-size: 1rem;
+            margin-bottom: 1.25rem;
+        }
+
+        .btn { 
+            display: inline-block;
+            background-color: #fabd5e;
+            color: #333;
+            text-decoration: none;
+            padding: 0.625rem 1.25rem;
+            border-radius: 0.3125rem;
+            font-size: 1rem;
+            transition: 0.5s ease;
+            cursor: pointer;
+        }
+
+        .btn:hover {
+            background-color: #f0a330;
+            color: white;
+            transition: 0.5s ease;
+            transform: scale(1.05);
+            cursor: pointer;
+        }
+
+        section {
+            padding: 2.5rem 1.25rem;
+            margin: 1.25rem auto;
+            max-width: 56.25rem;
+            text-align: center;
+            animation: fadeIn 1s ease;
+            background: #fff;
+            border-radius: 0.625rem;
+            box-shadow: 0 0.25rem 0.5rem rgba(0,0,0,0.1);
+        }
+
+        section h2 {
+            color: #52a2db;
+            margin-bottom: 1.25rem;
+            font-size: 2rem;
+        }
+
+        section p {
+            line-height: 1.6;
+            font-size: 1.1rem;
+        }
+
+        .features {
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            margin-top: 1.25rem;
+            padding: 1.25rem;
+        }
+
+        @media (min-width: 48rem) {
+            .features {
+                flex-direction: row;
+                justify-content: space-around;
+            }
+        }
+
+        .feature {
+            text-align: center;
+            margin: 0.625rem;
+            padding: 1.25rem;
+            background-color: #fff;
+            box-shadow: 0 0.25rem 0.5rem rgba(0,0,0,0.1);
+            border-radius: 0.625rem;
+            flex: 1 1 15.625rem;
+            animation: fadeIn 1s ease;
+            max-width: 18.75rem; /* Ensure all features are the same size */
+        }
+
+        .feature img {
+            max-width: 3.4375rem;
+            height: auto;
+            border-radius: 0.625rem;
+            transition: transform 0.3s ease;
+        }
+
+        .feature img:hover {
+            transform: scale(1.2);
+        }
+
+        .feature h3 {
+            color: #52a2db;
+            margin-top: 0.625rem;
+        }
+
+        .feature p {
+            font-style: italic;
+        }
+
+        footer {
+            text-align: center;
+            padding: 1.25rem;
+            background-color: #52a2db;
+            color: white;
+            position: relative;
+            bottom: 0;
+            width: 100%;
+        }
+
+        .donations-collected {
+            background: linear-gradient(135deg, #76b5c5 0%, #52a2db 100%);
+            color: #fff;
+            text-align: center;
+            padding: 2.5rem 0.625rem;
+            width: 100%;
+            box-sizing: border-box;
+            margin-top: 1.25rem;
+            font-size: 2rem;
+            box-shadow: 0 0.25rem 0.5rem rgba(0,0,0,0.1);
+        }
+
+        .donations-collected h2 {
+            margin: 0;
+        }
+
+        .donations-collected p {
+            font-size: 1.8rem;
+        }
+
+        @media (min-width: 37.5rem) {
+            .donations-collected {
+                font-size: 3rem;
+            }
+            .donations-collected p {
+                font-size: 2rem;
+            }
+        }
+
+        .container {
+            display: flex;
+            justify-content: space-around;
+            flex-direction: column;
+            align-items: center;
+            margin: 1.25rem auto;
+            padding: 1.25rem;
+            background-color: white;
+            border-radius: 0.625rem;
+            box-shadow: 0 0.625rem 1rem rgba(0,0,0,0.1);
+            max-width: 75rem;
+            width: 100%;
+        }
+
+        .container h2 {
+            font-size: 2rem;
+            margin: 1.25rem auto;
+            color: #52a2db;
+        }
+
+        .learn-more {
+            display: flex;
+            align-items: center;
+            flex-direction: row;
+        }
+
+        .article-img {
+            height: 5.5rem;
+            width: 5.5rem;
+            border-radius: 1.25rem;
+            justify-content: space-between;
+            padding: 0.625rem;
+            cursor: pointer;
+        }
+
+        .article-img:hover{
+            transform: scale(1.05);
+            cursor: pointer;
+        }
+
+        .healthcare-right {
+            display: flex;
+            align-items: center;
+            position: relative;
+            height: 31.25rem; /* Adjust height as needed */
+            padding: 3.125rem 6.25rem; /* Adjust padding as needed */
+            overflow: hidden; /* Hide overflow */
+        }
+
+        .healthcare-right h2 {
+            flex: 1;
+            color: #fabd5e; 
+            font-size: 3rem; 
+            font-weight: bold;
+            margin: 1.25rem auto;
+            line-height: 1.2;
+            margin-left: 1.875rem;
+            margin-right: 40.625rem;
+        }
+
+        .healthcare-right p {
+            flex: 1;
+            color: #649ba9; 
+            font-size: 1.2rem; 
+            margin: 1.25rem auto;
+            line-height: 1.6;
+            font-weight: 550;
+            margin-left: 1.875rem;
+            margin-right: 40.625rem;
+        }
+
+        .healthcare-right img {
+            height: 37.5rem;
+            width: 50rem;
+            padding: 1.875rem;
+            position: absolute;
+            right: 0;
+            top: 0;
+            margin-right: -6.25rem; /* Adjust to control the amount cut off */
+            z-index: -1; /* Ensure image is behind the text */
+            border-radius: 1.5625rem;
+            box-shadow: rgba(0, 0, 0, 0.1);
+        }
+
+        .donate-button {
+            display: inline-block;
+            background-color: #52a2db; 
+            color: #ffffff;
+            padding: 0.625rem 1.25rem;
+            font-size: 1.6rem;
+            font-weight: bold;
+            text-decoration: none;
+            border-radius: 0.3125rem;
+            margin-top: 1.25rem;
+            margin-left: 1.875rem;
+            transition: background-color 0.5s ease;
+            cursor: pointer;
+        }
+
+        .donate-button:hover {
+            background-color: #fabd5e;
+            color: white;
+            transition: background-color 0.5s ease;
+            transform: scale(1.05);
+            cursor: pointer;
+        }
+
+        .partner-container{
+            padding: 2.5rem 1.25rem;
+            margin: 1.25rem auto;
+            width: 100%;
+            text-align: center;
+            animation: fadeIn 1s ease;
+            background: linear-gradient(150deg, white 0%, #eef8ff 100%);
+            border-radius: 0.625rem;
+            box-shadow: 0 0.25rem 0.5rem rgba(0,0,0,0.1);
+        }
+
+
+        .partner-container h1{
+            color: #52a2db;
+            text-shadow: none;
+            font-weight: bold;
+            font-family: 'Gill Sans', 'Arial', sans-serif;
+        }
+
+        .partner-logo{
+            height: 6rem;
+            width: 6rem;
+            object-fit: cover;
+            position: relative;
+            border-radius: 0.625rem;
+            border: solid 0.25rem #fabd5e;
+        }
+
+        .partner-logo:hover{
+            transform: scale(1.05);
+            cursor: pointer;
+        }
+
+        @keyframes fadeIn {
+            from { opacity: 0; }
+            to { opacity: 1; }
+        }
+
+        @keyframes slideIn {
+            from { transform: translateY(-1.25rem); opacity: 0; }
+            to { transform: translateY(0); opacity: 1; }
+        }
+
+        /* Cookie Banner */
+        #cookie-banner {
+            position: fixed;
+            bottom: 0;
+            width: 100%;
+            background: #333;
+            color: #fff;
+            text-align: center;
+            padding: 0.9375rem;
+            display: none; /* Hidden by default */
+            z-index: 1000;
+        }
+
+        #cookie-banner button {
+            background: #fabd5e;
+            color: #333;
+            border: none;
+            padding: 0.625rem 1.25rem;
+            border-radius: 0.3125rem;
+            cursor: pointer;
+            font-size: 1rem;
+            transition: background-color 0.3s ease;
+        }
+
+        #cookie-banner button:hover {
+            background: #f0a330;
+        }
+    </style>    
+</head>
+
+<body>
+
+
+<header>
+    <div class = "header-container">
+        <img src="pictures/EquiCareConnect.jpeg" alt="EquiCareConnect Logo" class="logo">
+        <h1>EquiCareConnect</h1>
+    </div>
+</header>
+
+    <nav>
+        <ul class="nav-links">
+            <li><a href="index.html">Home</a></li>
+            <li><a href="#">Fighting for a Cause</a>
+                <div class="dropdown-content">
+                    <a href="causes/fundraising.html">Fundraising</a>
+                    <a href="causes/healthcare-social.html">Healthcare Accessibility</a>
+                    <a href="causes/chronic-diseases.html">Chronic Diseases</a>
+                    <a href="causes/mental-health.html">Mental Health</a>
+                    <a href="causes/infant-maternal-health.html">Infant and Maternal Health</a>
+                    <a href="causes/health-equity.html">Health Equity</a>
+                    <a href="causes/helpful-resources.html">Helpful Resources</a>
+                </div>
+            </li>
+            <li><a href="#">About Us</a>
+                <div class="dropdown-content">
+                    <a href="about/founders.html">Founders</a>
+                    <a href="about/partnerships.html">Partnerships</a>
+                    <a href="about/volunteers-and-interns.html">Volunteers & Interns</a>
+                </div>
+            </li>
+            <li><a href="#">Projects</a>
+                <div class="dropdown-content">
+                    <a href="projects/free-consultations.html">Free Consultations</a>
+                    <a href="projects/doctor-matching-software.html">Doctor Matching Software</a>
+                    <a href="projects/policy-advocacy.html">Policy Advocacy</a>
+                </div>
+            </li>
+            <li><a href="#">Opportunities</a>
+                <div class="dropdown-content">
+                    <a href="opportunities/volunteering-internships.html">Volunteering & Internships</a>
+                    <a href="opportunities/apply.html">Apply</a>
+                </div>
+            </li>
+            <li><a href="#">Blog</a>
+                <div class="dropdown-content">
+                    <a href="blog/research.html">Research</a>
+                    <a href="blog/latest-blog-posts.html">Latest Blog Posts</a>
+                    <a href="blog/submit-post.html">Submit a Post</a>
+                </div>
+            </li>
+            <li><a href="contact-us.html">Contact Us</a></li>
+        </ul>
+    </nav>
+    <div class="hero">
+        <div class="hero-text">
+            <h2>Empowering Communities for a Better Future</h2>
+            <p>Join us in making a difference in the lives of those who need it most. Explore our projects, contribute, and become a part of our mission.</p>
+            <a href="causes/fundraising.html" class="btn">Donate Now</a>
+        </div>
+    </div>
+    <section>
+        <h2>About Us</h2>
+        <p>EquiCareConnect is dedicated to bridging the gap in healthcare access and equity. We strive to provide resources and support to underprivileged communities and advocate for social justice in healthcare. </p>
+        <div class="features">
+            <div class="feature">
+                <img src="pictures/learn.jpg" alt="Learn">
+                <h3>Learn</h3>
+                <p>Engage with communities and health equity agencies to understand their issues and collaborate with professionals.</p>
+            </div>
+            <div class="feature">
+                <img src="pictures/curate.jpg" alt="Curate">
+                <h3>Curate</h3>
+                <p>Collect data and advocate for the unrepresented, educating them about their health rights and overcoming social determinants.</p>
+            </div>
+            <div class="feature">
+                <img src="pictures/collaborate.jpg" alt="Collaborate">
+                <h3>Collaborate</h3>
+                <p>Partner with telemedicine startups to improve healthcare access and bridge the disparity for these communities.</p>
+            </div>
+        </div>
+    </section>
+
+    <div class="donations-collected">
+        <h2>Donations Collected</h2>
+        <p>$10,000</p>
+    </div>
+
+    <div class = "partner-container">
+        <h1>Partners & Sponsors</h1>
+        <a href = "https://www.envisionstem.net" target = "_blank">
+            <img class = "partner-logo" src = "pictures/envision-stem.png" alt = "EnvisionSTEM Logo">
+        </a>
+    </div>
+
+    <div class="healthcare-right">
+        <div>
+            <h2>Healthcare is not a privilege, it's a RIGHT.</h2>
+            <p>EquiCareConnect aims to support families of all backgrounds to access the healthcare that they deserve. We aim to address the inequalities and inequities present in the United States' healthcare system. Everyone deserves to have free access to healthcare, and we will continue our mission to make this a possible reality for all.</p>
+            <a href="../causes/fundraising.html" class="donate-button">Donate</a>
+        </div>
+        <img src="https://s1.r29static.com/bin/entry/a2e/x,80/1527089/image.jpg" alt="Boy holding a picture of an X-Ray">
+    </div>
+
+    <div class = "container">
+        <h2>Click to Learn More</h2>
+        <div class = "learn-more">
+            <a class = "article-links" href = "https://medicine.missouri.edu/centers-institutes-labs/health-ethics/faq/health-care-access" target = "_blank">
+                <img class = "article-img" src = "https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcSkIkIi--s4C8SuZnNXB65ongBIPoHbNp8c6A&s" alt = "University of Missouri School of Medicine Logo">
+            </a>
+            <a class = "article-links" href = "https://www.rwjf.org/en/insights/blog/2013/01/_of_all_the_formsof.html" target = "_blank">
+                <img class = "article-img" src = "https://images.crunchbase.com/image/upload/c_pad,f_auto,q_auto:eco,dpr_1/v1412323005/tzggv9crm0o6a3eigchx.png" alt = "Robert Wood Johnson Foundation Logo">
+            </a>
+            <a class = "article-links" href = "https://www.health.harvard.edu/blog/is-our-healthcare-system-broken-202107132542" target = "_blank">
+                <img class = "article-img" src = "https://upload.wikimedia.org/wikipedia/commons/thumb/c/cc/Harvard_University_coat_of_arms.svg/1200px-Harvard_University_coat_of_arms.svg.png" alt = "Harvard Health Logo">
+            </a>
+        </div>
+    </div>
+
+    <footer>
+        <p>&copy; 2024 EquiCareConnect. All rights reserved.</p>
+    </footer>
+
+    <div id="cookie-banner">
+        <p>We use cookies to improve your experience. By continuing to visit this site you agree to our use of cookies.</p>
+        <button id="accept-cookies">Accept</button>
+    </div>
+    <script>
+        document.addEventListener('DOMContentLoaded', function () {
+            var cookieBanner = document.getElementById('cookie-banner');
+            var acceptCookies = document.getElementById('accept-cookies');
+            if (!localStorage.getItem('cookiesAccepted')) {
+                cookieBanner.style.display = 'block';
+            }
+            acceptCookies.addEventListener('click', function () {
+                localStorage.setItem('cookiesAccepted', 'true');
+                cookieBanner.style.display = 'none';
+            });
+        });
+    </script>
+</body>
+</html>

@@ -1,0 +1,435 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>EquiCareConnect - Apply</title>
+    <link rel="stylesheet" href="../cookie-consent.css"> <!-- Link to cookie CSS file -->
+    <link rel="stylesheet" href="../styles.css"> <!-- Link to GLOBAL CSS file -->
+    <style>
+        body {
+            background-color: #f2f2f2;
+            color: #333;
+            margin: 0;
+            padding: 0;
+            transition: background-color 0.3s ease;
+            font-family: 'Gill Sans', 'Arial', sans-serif;
+            overflow-x: hidden; 
+            box-sizing: border-box; 
+        }
+
+        header {
+            background: linear-gradient(135deg, #52a2db 0%, #1e3c72 100%);
+            color: white;
+            text-align: center;
+            padding: 1.25rem 10%;
+            position: relative;
+            border-bottom: 0.3125rem solid #fabd5e;
+            box-shadow: 0 0.25rem 0.5rem rgba(0,0,0,0.2);
+            animation: fadeIn 1s ease;
+        }
+
+        .header-container {
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+        }
+
+        .page-header {
+            background-color: #52a2db;
+            color: white;
+            text-align: center;
+            padding: 1.25rem;
+            border-bottom: 0.3125rem solid #fabd5e;
+            animation: slideIn 1s ease;
+        }
+
+        .page-header h1 {
+            margin: 0;
+        }
+
+        .logo {
+            width: 7.5rem;
+            height: auto;
+            border-radius: 50%;
+            transition: transform 0.3s ease;
+        }
+
+        .logo:hover {
+            transform: scale(1.1);
+        }
+
+        nav {
+            background-color: #b8d6d4;
+            text-align: center;
+            padding: 0.625rem;
+            margin-bottom: 1.25rem;
+            animation: slideIn 1s ease;
+            position: relative;
+        }
+
+        .nav-links {
+            display: flex;
+            justify-content: center;
+            padding: 0;
+            margin: 0;
+            list-style: none;
+        }
+
+        .nav-links > li {
+            position: relative;
+        }
+
+        .nav-links > li > a {
+            color: #333;
+            text-decoration: none;
+            margin: 0 0.625rem;
+            font-size: 1.125rem;
+            transition: color 0.3s ease;
+            padding: 0.625rem;
+            display: inline-block;
+        }
+
+        .nav-links > li > a:hover {
+            color: #52a2db;
+            transform: scale(1.1);
+        }
+
+        .dropdown-content {
+            display: none;
+            position: absolute;
+            top: 100%;
+            left: 0;
+            background-color: #b8d6d4;
+            padding: 0.625rem;
+            border-radius: 0.3125rem;
+            box-shadow: 0 0 0.625rem rgba(0, 0, 0, 0.1);
+            width: 12.5rem;
+            z-index: 1000;
+        }
+
+        .dropdown-content a {
+            display: block;
+            color: #333;
+            text-decoration: none;
+            padding: 0.625rem;
+            transition: background-color 0.3s ease;
+        }
+
+        .dropdown-content a:hover {
+            background-color: #52a2db;
+            color: white;
+        }
+
+        .nav-links > li:hover .dropdown-content {
+            display: block;
+        }
+
+        .container {
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            margin: 1.875rem auto;
+            padding: 0.625rem;
+            background-color: white;
+            border-radius: 0.9375rem;
+            box-shadow: 0 0 0.625rem rgba(0,0,0,0.1);
+            max-width: 30rem;
+            width: 100%;
+        }
+
+        .container p {
+            color: #fabd5e;
+            font-weight: bold;
+            text-align: center;
+            margin: 0;
+            padding: 0.625rem;
+            font-size: 1rem;
+        }
+
+        #contact-page {
+            color: #fabd5e;
+            transition: color 0.5s ease;
+            text-decoration: none;
+            margin-left: 0.125rem; 
+            font-weight: bold;
+            font-size: 1rem;
+        }
+
+        #contact-page:hover {
+            color: #52a2db;
+            transition: color 0.5s ease;
+            text-decoration: none;
+        }
+
+        .apply-today {
+            display: flex;
+            align-items: center;
+            position: relative;
+            height: 31.25rem; /* Adjust height as needed */
+            padding: 3.125rem 6.25rem; /* Adjust padding as needed */
+            overflow: hidden; /* Hide overflow */
+        }
+
+        .apply-today h2 {
+            flex: 1;
+            color: #fabd5e; 
+            font-size: 3rem; 
+            font-weight: bold;
+            margin: 1.25rem auto;
+            line-height: 1.2;
+            margin-left: 1.875rem;
+            margin-right: 40.625rem;
+        }
+
+        .apply-today p {
+            flex: 1;
+            color: #649ba9; 
+            font-size: 1.2rem; 
+            margin: 1.25rem auto;
+            line-height: 1.6;
+            font-weight: 550;
+            margin-left: 1.875rem;
+            margin-right: 40.625rem;
+        }
+
+        .apply-today img {
+            height: 37.5rem;
+            width: 50rem;
+            padding: 1.875rem;
+            position: absolute;
+            right: 0;
+            top: 0;
+            margin-right: -6.25rem; /* Adjust to control the amount cut off */
+            z-index: -1; /* Ensure image is behind the text */
+            border-radius: 1.875rem;
+            box-shadow: rgba(0, 0, 0, 0.1);
+        }
+
+        .apply-button {
+            display: inline-block;
+            background-color: #52a2db; 
+            color: #ffffff;
+            padding: 0.625rem 1.25rem;
+            font-size: 1.6rem;
+            font-weight: bold;
+            text-decoration: none;
+            border-radius: 0.3125rem;
+            margin-top: 1.25rem;
+            margin-left: 1.875rem;
+            transition: background-color 0.5s ease;
+            cursor: pointer;
+        }
+
+        .apply-button:hover {
+            background-color: #fabd5e;
+            color: white;
+            transition: background-color 0.5s ease;
+            transform: scale(1.05);
+            cursor: pointer;
+        }
+
+        .advertise-container {
+            background: linear-gradient(135deg, #76b5c5 0%, #52a2db 100%);
+            color: #fff;
+            padding: 2.5rem 0.625rem;
+            margin-bottom: 1.875rem;
+            width: 100%;
+            box-sizing: border-box;
+            margin-top: 1.875rem;
+            font-size: 2rem;
+            box-shadow: 0 0.25rem 0.5rem rgba(0,0,0,0.1);
+            display: flex;
+            justify-content: center; /* Center the content */
+        }
+
+        .space-container {
+            display: flex;
+            width: 100%;
+            max-width: 75rem; /* Adjust as needed */
+            justify-content: space-evenly; /* Use space-evenly to distribute space */
+            align-items: center;
+        }
+
+        .advertise-text {
+            text-align: center;
+            flex: 1; /* Allow text elements to grow and shrink equally */
+        }
+
+        .advertise-text h2 {
+            margin: 0;
+            color: #ffcf5f; /* Matching the color for the numbers */
+        }
+
+        .advertise-text p {
+            margin: 0;
+            font-size: 0.8em; /* Adjust size as needed */
+        }
+
+        footer {
+            text-align: center;
+            padding: 1.25rem;
+            background-color: #52a2db;
+            color: white;
+            position: relative;
+            bottom: 0;
+            width: 100%;
+        }
+        /* Cookie Banner */
+        #cookie-banner {
+            position: fixed;
+            bottom: 0;
+            width: 100%;
+            background: #333;
+            color: #fff;
+            text-align: center;
+            padding: 0.9375rem;
+            display: none; /* Hidden by default */
+            z-index: 1000;
+        }
+
+        #cookie-banner button {
+            background: #fabd5e;
+            color: #333;
+            border: none;
+            padding: 0.625rem 1.25rem;
+            border-radius: 0.3125rem;
+            cursor: pointer;
+            font-size: 1rem;
+            transition: background-color 0.3s ease;
+        }
+
+        #cookie-banner button:hover {
+            background: #f0a330;
+        }
+        @keyframes slideIn {
+            from {
+                transform: translateY(-1.25rem);
+                opacity: 0;
+            }
+            to {
+                transform: translateY(0);
+                opacity: 1;
+            }
+        }
+
+        @keyframes fadeIn {
+            from {
+                opacity: 0;
+            }
+            to {
+                opacity: 1;
+            }
+        }
+    </style>
+</head>
+<body>
+    <header>
+        <div class = "header-container">
+            <img src="../pictures/EquiCareConnect.jpeg" alt="EquiCareConnect Logo" class="logo">
+            <h1>EquiCareConnect</h1>
+        </div>
+    </header>
+
+<nav>
+    <ul class="nav-links">
+        <li><a href="../index.html">Home</a></li>
+        <li><a href="#">Fighting for a Cause</a>
+            <div class="dropdown-content">
+                <a href="../causes/fundraising.html">Fundraising</a>
+                <a href="../causes/healthcare-social.html">Healthcare Accessibility</a>
+                <a href="../causes/chronic-diseases.html">Chronic Diseases</a>
+                <a href="../causes/mental-health.html">Mental Health</a>
+                <a href="../causes/infant-maternal-health.html">Infant and Maternal Health</a>
+                <a href="../causes/health-equity.html">Health Equity</a>
+                <a href="../causes/helpful-resources.html">Helpful Resources</a>
+            </div>
+        </li>
+        <li><a href="#">About Us</a>
+            <div class="dropdown-content">
+                <a href="../about/founders.html">Founders</a>
+                <a href="../about/partnerships.html">Partnerships</a>
+                <a href="../about/volunteers-and-interns.html">Volunteers & Interns</a>
+            </div>
+        </li>
+        <li><a href="#">Projects</a>
+            <div class="dropdown-content">
+                <a href="../projects/free-consultations.html">Free Consultations</a>
+                <a href="../projects/doctor-matching-software.html">Doctor Matching Software</a>
+                <a href="../projects/policy-advocacy.html">Policy Advocacy</a>
+            </div>
+        </li>
+        <li><a href="#">Opportunities</a>
+            <div class="dropdown-content">
+                <a href="volunteering-internships.html">Volunteering & Internships</a>
+                <a href="apply.html">Apply</a>
+            </div>
+        </li>
+        <li><a href="#">Blog</a>
+            <div class="dropdown-content">
+                <a href="../blog/research.html">Research</a>
+                <a href="../blog/latest-blog-posts.html">Latest Blog Posts</a>
+                <a href="../blog/submit-post.html">Submit a Post</a>
+            </div>
+        </li>
+        <li><a href="../contact-us.html">Contact Us</a></li>
+    </ul>
+</nav>
+
+<div class = "page-header">
+    <h1>EquiCareConnect Application</h1>
+</div>
+
+
+<div class="apply-today">
+    <div>
+        <h2>Healthcare is a HUMAN RIGHT.</h2>
+        <p>EquiCareConnect's mission of increasing healthcare accessibility and addressing health inequities could not be possible without the help of our amazing team. Currently, our applications for volunteering and internships are open. Help support us with our mission by applying for a position today!</p>
+        <a href="https://forms.gle/5L3VjTa9YJ5AZZrc8" target = "_blank" class="apply-button">Apply Now</a>
+    </div>
+    <img src="../pictures/healthcare-human-right.jpeg" alt="Picture of fists in the air with the caption, 'Healthcare is human right.'">
+</div>
+
+<div class="advertise-container">
+    <div class="space-container">
+        <div class="advertise-text">
+            <h2>10</h2>
+            <p>INTERNS</p>
+        </div>
+        <div class="advertise-text">
+            <h2>10</h2>
+            <p>VOLUNTEERS</p>
+        </div>
+        <div class="advertise-text">
+            <h2>300+</h2>
+            <p>PEOPLE REACHED</p>
+        </div>
+    </div>
+</div>
+
+
+<div class="container">
+    <p>Have any questions?</p> 
+    <a id="contact-page" href="../contact-us.html">
+        Visit our contact page.
+    </a>
+</div>
+
+
+<footer>
+    <p>&copy; 2024 EquiCareConnect. All rights reserved.</p>
+</footer>
+
+<div id="cookie-banner">
+    <p>We use cookies to enhance your experience. By continuing to visit this site, you agree to our <a href="#">cookie policy</a>.</p>
+    <button id="accept-cookies">Accept</button>
+</div>
+
+<script>
+    document.getElementById('accept-cookies').addEventListener('click', function() {
+        document.getElementById('cookie-banner').style.display = 'none';
+    });
+</script>
+
+</body>
+</html>
